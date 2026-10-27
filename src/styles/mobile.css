@@ -1,0 +1,3 @@
+@media (max-width: 760px) {
+  .nav-shell nav { flex: 0 0 100%; }
+}
