@@ -1,0 +1,13 @@
+---
+import Search from '@astrojs/starlight/components/Search.astro';
+import chinese from '../content/i18n/zh-CN.json';
+const translations = Object.fromEntries(Object.entries(chinese).map(([key, value]) => [key.replace('pagefind.', ''), value]));
+const isChinese = Astro.locals.starlightRoute.locale === 'zh-cn';
+---
+<Search {...Astro.props} />
+{isChinese && <script is:inline define:vars={{ translations }}>
+  for (const search of document.querySelectorAll('site-search')) {
+    const current = JSON.parse(search.dataset.translations || '{}');
+    search.dataset.translations = JSON.stringify({ ...current, ...translations });
+  }
+</script>}

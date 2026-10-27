@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+const { entry, locale } = Astro.locals.starlightRoute;
+const targetLocale = locale === 'zh-cn' ? 'en' : 'zh-cn';
+const docs = await getCollection('docs');
+const translation = docs.find((doc) => doc.data.contentId === entry.data.contentId && doc.id.startsWith(`${targetLocale}/`));
+const targetPath = translation ? `/${translation.id.replace(/\.mdx?$/, '').replace(/\/index$/, '')}/` : undefined;
+---
+<div class="language-switch">
+  {targetPath ? <a href={targetPath}>{targetLocale === 'en' ? 'English' : '中文'} ↗</a> : <span title={locale === 'zh-cn' ? '英文版尚未翻译，请阅读当前中文原文。' : 'Chinese translation is not available yet.'}>{locale === 'zh-cn' ? '英文版尚未翻译' : 'Chinese unavailable'}</span>}
+</div>
+<style>
+  .language-switch { font-size: var(--sl-text-sm); white-space: nowrap; }
+  a { color: var(--sl-color-text); text-decoration: none; }
+  a:hover { color: var(--sl-color-text-accent); }
+  span { color: var(--sl-color-gray-3); }
+</style>
