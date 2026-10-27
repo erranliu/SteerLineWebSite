@@ -52,11 +52,17 @@ As a rough reference in lines of code, think of projects with 300,000 lines or m
 
 Project scale directly affects the difficulty of AI development. As a project grows, relationships between requirements and dependencies between modules multiply, making it harder to keep changes consistent, verify the system, and maintain it over time. Simply scaling up the way you develop a small project will cause you to lose control as those relationships and changes accumulate.
 
-To deliver such projects, you need to be willing to learn systematically and even change how you think. Understanding problems, choosing methods, and checking results all require you to develop your own judgment. Chasing the latest tricks cannot replace that learning and thinking.
-
-That investment should also build lasting skills. What you learn about requirements, task organization, AI capabilities, and delivery in one project should carry into the next. If every project sends you back to searching for a popular workflow and guessing how to work with AI, you have not yet developed a method of your own.
-
 If you just want to try an idea with a demo, or build a small tool for yourself or your internal team, you do not necessarily need this body of engineering knowledge. Asking AI to implement it directly is enough for many such needs.
+
+## This course is not easy
+
+**This course is demanding, and learning it will take real effort.** Compared with traditional software development, the amount of knowledge you need to learn is modest. But mastering it takes extensive project practice and changes in how you think. Chasing the latest tricks cannot replace that learning and practice.
+
+AI now has considerable intelligence and the ability to execute work. You can trust it with many tasks, while many others still require people. Understanding that division of responsibility and designing the development process around it is difficult. This remains a branch of engineering, but the way it works is radically different from traditional software engineering.
+
+A background in software engineering will make learning somewhat easier, but you will still face the challenge of changing established ways of thinking. Among people without that background, I repeatedly observe a tendency to underestimate the difficulty of engineering software with AI. AI's ability to produce working pieces quickly makes it even easier to misjudge the effort the whole project requires.
+
+That learning and practice should build lasting skills. What you learn about requirements, task organization, AI capabilities, and delivery in one project should carry into the next. If every project sends you back to searching for a popular workflow and guessing how to work with AI, you have not yet developed a method of your own.
 
 ## What this guide provides
 
