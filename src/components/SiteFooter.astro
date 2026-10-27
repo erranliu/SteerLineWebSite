@@ -1,0 +1,6 @@
+---
+import Brand from './Brand.astro';
+const { lang = 'en' } = Astro.props;
+const zh = lang === 'zh-cn';
+---
+<footer class="site-footer"><div class="site-footer-inner"><div><Brand lang={lang} /><p>{zh ? '为认真构建软件的人而作。' : 'For people who care about building software.'}</p></div><nav aria-label={zh ? '页脚导航' : 'Footer navigation'}><a href={`/${lang}/product/`}>{zh ? '产品' : 'Product'}</a><a href={`/${lang}/ai-engineering/`}>{zh ? '学习 AI 开发' : 'Learn AI Development'}</a><a href={`/${lang}/steerline/`}>{zh ? '学习 SteerLine' : 'Learn SteerLine'}</a><a href={`/${lang}/docs/`}>{zh ? '文档' : 'Docs'}</a><a href={`/${lang}/updates/`}>{zh ? '项目更新' : 'Updates'}</a><a href={`/${lang}/about/`}>{zh ? '关于' : 'About'}</a></nav></div><div class="site-footer-bottom"><span>© SteerLine</span><span>BUILD WITH INTENT.</span></div></footer>

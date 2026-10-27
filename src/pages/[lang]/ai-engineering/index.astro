@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content';
+import SiteHeader from '../../../components/SiteHeader.astro';
+import SiteFooter from '../../../components/SiteFooter.astro';
+import { learningGroups } from '../../../data/learning';
+import '../../../styles/learning.css';
+export function getStaticPaths() { return ['en', 'zh-cn'].map((lang) => ({ params: { lang } })); }
+const lang = Astro.params.lang!;
+const zh = lang === 'zh-cn';
+const languageIndex = zh ? 0 : 1;
+const docs = await getCollection('docs');
+const groups = learningGroups.map((group) => ({ ...group, articles: group.items.map((slug) => docs.find((doc) => doc.data.contentId === `ai-engineering/${slug}` && doc.id.startsWith(`${lang}/`))).filter((doc) => !!doc) }));
+const count = groups.reduce((total, group) => total + group.articles.length, 0);
+const title = zh ? '学习 AI 开发' : 'Learn AI Development';
+const lead = zh ? '从理解 AI 的边界，到组织真实的软件项目。用清晰的规格、可靠的验证与人的判断，建立自己的开发方法。' : 'From understanding the limits of AI to organizing real software projects. Build your practice around clear specifications, reliable verification, and human judgment.';
+---
+<!doctype html>
+<html lang={zh ? 'zh-CN' : 'en'}>
+  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>{title} — SteerLine</title><meta name="description" content={lead} /><link rel="canonical" href={`https://steerline.dev/${lang}/ai-engineering/`} /><link rel="alternate" hreflang="en" href="https://steerline.dev/en/ai-engineering/" /><link rel="alternate" hreflang="zh-CN" href="https://steerline.dev/zh-cn/ai-engineering/" /></head>
+  <body class="learning-page">
+    <a class="learning-skip" href="#main">{zh ? '跳转到主要内容' : 'Skip to content'}</a>
+    <header class="site-header"><SiteHeader lang={lang} translationPath={`/${zh ? 'en' : 'zh-cn'}/ai-engineering/`} /></header>
+    <main id="main" data-pagefind-body>
+      <section class="learning-hero learning-wrap">
+        <div class="learning-hero-copy"><p class="learning-eyebrow"><span></span>{zh ? '方法、判断与实践' : 'METHOD, JUDGMENT & PRACTICE'}</p><h1 data-pagefind-meta="title">{zh ? <>学习 AI 开发<span class="learning-title-dot">.</span></> : <>Learn AI<br />Development<span class="learning-title-dot">.</span></>}</h1><p class="learning-lead">{lead}</p><div class="learning-actions"><a class="learning-primary" href={`/${lang}/ai-engineering/why-serious-ai-development/`}>{zh ? '从第一篇开始' : 'Start with the first guide'}<span aria-hidden="true">↗</span></a><a class="learning-secondary" href="#curriculum">{zh ? '浏览全部内容' : 'Explore the curriculum'} <span aria-hidden="true">↓</span></a></div><p class="learning-hero-note">{zh ? '独立于具体工具，面向真实的软件工程。' : 'Tool-independent thinking for real software engineering.'}</p></div>
+        <aside class="learning-map" aria-label={zh ? '学习路径概览' : 'Learning path overview'}><div class="learning-map-head"><span>{zh ? '你的学习路径' : 'YOUR LEARNING PATH'}</span><span>SL / LEARN</span></div><ol>{groups.map((group, i) => <li><a href={`#${group.id}`}><span class="map-number">0{i + 1}</span><span class="map-node" aria-hidden="true"></span><div><strong>{group.title[languageIndex]}</strong><span class="map-description">{zh ? `${group.articles.length} 篇内容` : `${group.articles.length} guides`}</span></div><span class="map-arrow" aria-hidden="true">↗</span></a></li>)}</ol><div class="learning-map-foot"><span aria-hidden="true">↳</span>{zh ? '循序学习，也可以从你关心的问题开始。' : 'Follow the path, or start with a question.'}</div></aside>
+      </section>
+      <div class="learning-curriculum" id="curriculum"><div class="learning-wrap"><div class="curriculum-heading"><p class="learning-eyebrow">{zh ? '学习内容' : 'THE CURRICULUM'}</p><span>{zh ? `04 个栏目 / ${count} 篇内容` : `04 sections / ${count} guides`}</span></div>
+        {groups.map((group, i) => <section class="curriculum-section" id={group.id}><div class="curriculum-intro"><span class="curriculum-index">0{i + 1} /</span><h2>{group.title[languageIndex]}</h2><p>{group.description[languageIndex]}</p><span class="curriculum-count">{zh ? `${group.articles.length} 篇内容` : `${group.articles.length} GUIDES`}</span></div><ol class="curriculum-list">{group.articles.map((article, j) => <li><a href={`/${article.id.replace(/\/index$/, '')}/`}><span class="lesson-number">{String(j + 1).padStart(2, '0')}</span><span class="lesson-title">{article.data.title}</span><span class="lesson-arrow" aria-hidden="true">↗</span></a></li>)}</ol></section>)}
+      </div></div>
+      <section class="learning-next learning-wrap"><div><p class="learning-eyebrow">{zh ? '从方法，到实践' : 'FROM METHOD TO PRACTICE'}</p><h2>{zh ? '用 SteerLine 组织你的下一步。' : 'Give your next steps a structure.'}</h2><p>{zh ? '了解 Roadmap 与 DAG，探索如何把清晰的方向变成有序的工作。' : 'Explore roadmaps and DAGs, and turn a clear direction into organized work.'}</p></div><a class="learning-secondary" href={`/${lang}/steerline/`}>{zh ? '学习 SteerLine' : 'Learn SteerLine'} <span aria-hidden="true">→</span></a></section>
+    </main>
+    <SiteFooter lang={lang} />
+  </body>
+</html>

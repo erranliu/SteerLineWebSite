@@ -1,0 +1,4 @@
+---
+const { lang = 'en' } = Astro.props;
+---
+<a class="site-brand" href={`/${lang}/`} aria-label={lang === 'zh-cn' ? 'SteerLine 首页' : 'SteerLine home'}><span class="site-brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>steerline<span class="site-brand-dot">.</span></a>

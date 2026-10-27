@@ -8,6 +8,8 @@ Use Node.js 22 or newer. Install dependencies with `npm install`, start the loca
 
 The default entry redirects to `/en/`; Chinese pages are under `/zh-cn/`. The homepage is custom Astro, while the articles use Starlight. The GitHub Actions workflow builds on pull requests and pushes to `main`.
 
+The AI learning overview at `/<locale>/ai-engineering/` is also a custom Astro page. Its course groups and article order are defined in `src/data/learning.ts`. The homepage, learning overview, and Starlight articles share `SiteHeader` and `SiteFooter`; article navigation is limited to its content section. Project updates are accessible from the footer and the homepage project status section.
+
 ## Deployment
 
 Production is hosted at `https://steerline.dev` in the `steerline` Cloudflare Pages project. Deployments use a local build and Wrangler Direct Upload; the GitHub workflow checks builds but does not deploy automatically.

@@ -1,6 +1,6 @@
 ---
-title: "AI Engineering"
-description: "AI Engineering"
+title: "Learn AI Development"
+description: "Build your AI development practice with clear specifications, reliable verification, and human judgment."
 contentId: "ai-engineering/index"
 translationStatus: current
 updated: "2026-10-27"
