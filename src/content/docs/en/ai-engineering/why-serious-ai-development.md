@@ -4,7 +4,7 @@ description: "For developers aiming to deliver small and midsize commercial soft
 contentId: "ai-engineering/why-serious-ai-development"
 translationStatus: current
 updated: "2026-10-27"
-version: "0.1.0"
+version: "0.1.1"
 sidebar:
   order: 1
   label: "1. Why You Need a Serious Guide to AI Software Project Development"
@@ -24,7 +24,7 @@ A keyword search also brings up plenty of content that stokes anxiety to sell co
 
 Even after filtering out this misinformation, most people struggle to keep up with useful information and understand how it fits together. One article recommends breaking work into smaller tasks; another recommends giving AI more autonomy. One developer stresses documentation; another demonstrates how to skip it and start coding. Every suggestion sounds reasonable, but you still do not know which to use in your own project.
 
-Learning then becomes collecting: saving prompts, installing new tools, and copying other people's workflows. The immediate problem gets solved, but the reason remains unclear. **Scattered knowledge does not assemble itself into a development method.** You need to understand the connections before you can make informed choices in your own project.
+Learning then becomes collecting: saving prompts, installing new tools, and copying other people's workflows. The immediate problem gets solved, but the reason remains unclear. **Scattered knowledge does not assemble itself into a development method.** AI software development is still new, and a coherent theoretical foundation and guidance for engineering practice are still taking shape. Most people struggle to select and organize this knowledge on their own, let alone develop a systematic understanding that can guide a project.
 
 ## The method you just learned may already be obsolete
 
@@ -66,10 +66,10 @@ That learning and practice should build lasting skills. What you learn about req
 
 ## What this guide provides
 
-We continually bring together official documentation, research papers, and community practice, combining them with our own project experience to offer guidance on understanding problems and engineering practice based on our latest understanding. We call this evolving body of knowledge "AI Software Engineering."
+We continually bring together the latest consensus on AI development from the practitioner and research communities, combining it with our own project experience and latest understanding to provide the best theoretical foundations and engineering practices available today. We call this evolving body of knowledge "AI Software Engineering."
 
-The guide starts with AI's limitations and the human role, then covers expressing requirements, specifications (Specs), Git and worktrees, testing, acceptance, auditing, and documentation management. We place these subjects within a complete development process and explain how they work together to support project delivery.
+The guide starts with the prerequisite knowledge needed to understand AI, then explains today's most efficient, mainstream development methods and how to use them to organize a complete software project. AI's limitations, the human role, expressing requirements, specifications (Specs), Git and worktrees, testing, acceptance, auditing, and documentation management all serve that goal: helping you understand what problem each method solves and how to combine them to deliver a project.
 
 For obsolete methods, we explain why they became obsolete and what to use today to address the same problems. Knowing what you no longer need to learn can save substantial time too.
 
-**This guide is completely free and continuously updated.** We will keep up with the latest thinking at the forefront of AI development, stay aligned with community consensus, and incorporate new insights and methods into the guide promptly. Every article will retain a version number and update date so you can follow the changes. Our aim is to provide a learning resource you can keep returning to for current development guidance, allowing you to spend your time understanding problems and building lasting skills.
+**This guide is completely free and continuously updated.** We will promptly incorporate the latest insights and methods at the forefront of AI development. Every article will retain a version number and update date so you can follow the changes. Our aim is to provide a learning resource you can keep returning to for current development guidance, allowing you to spend your time understanding problems and building lasting skills.
