@@ -41,6 +41,7 @@ export default defineConfig({
               'ai-engineering/layered-documentation',
               'ai-engineering/models-and-agents',
               'ai-engineering/why-steerline',
+              'ai-engineering/project-milestones',
             ],
           },
           {

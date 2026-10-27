@@ -26,6 +26,7 @@ sidebar:
 4. [文档的分层管理](./layered-documentation/)
 5. [模型和Agent的选择](./models-and-agents/)
 6. [SteerLine解决什么问题](./why-steerline/)
+7. [项目的关键进度，需求、关键路径验收和后续搜索空间收敛](./project-milestones/)
 
 ## AI和认知科学
 

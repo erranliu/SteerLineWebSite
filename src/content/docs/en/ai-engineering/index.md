@@ -26,6 +26,7 @@ sidebar:
 4. [Layered Documentation Management](./layered-documentation/)
 5. [Choosing Models and Agents](./models-and-agents/)
 6. [What Problems Does SteerLine Solve?](./why-steerline/)
+7. [Key Project Milestones: Requirements, Critical Path Acceptance, and Subsequent Search Space Convergence](./project-milestones/)
 
 ## AI and Cognitive Science
 
