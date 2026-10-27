@@ -10,7 +10,9 @@ The default entry redirects to `/en/`; Chinese pages are under `/zh-cn/`. The ho
 
 ## Deployment
 
-The static site is deployed to the `steerline` Cloudflare Pages project at `https://steerline.dev`. After authenticating with Wrangler, build with `npm ci` and `npm run build`, then deploy with `npx wrangler pages deploy dist --project-name steerline --branch main`. This is a direct upload; the GitHub workflow currently checks builds but does not deploy automatically.
+Production is hosted at `https://steerline.dev` in the `steerline` Cloudflare Pages project. Deployments use a local build and Wrangler Direct Upload; the GitHub workflow checks builds but does not deploy automatically.
+
+Follow the [deployment runbook](docs/deployment.md) for Chinese/English alignment, environment setup, build and preview, production deployment, domain configuration, verification, and rollback. Keep operational commands in that document so the release process has one maintained source.
 
 ## Content
 
