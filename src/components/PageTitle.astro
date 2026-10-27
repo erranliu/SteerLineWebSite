@@ -1,10 +1,16 @@
 ---
 const { entry, locale } = Astro.locals.starlightRoute;
 const stale = entry.data.translationStatus === 'needs-sync';
+const titleOnly = !entry.body?.trim();
 ---
-{stale && <aside class="translation-notice" role="note">{locale === 'zh-cn' ? '此版本可能落后于原文，正在等待同步。' : 'This translation may be out of date and is awaiting an update.'}</aside>}
+{stale && <aside class="translation-notice" role="note">{locale === 'zh-cn' ? '此版本可能落后于原文，正在等待同步。' : titleOnly ? 'English content will be added after the Chinese edition is complete.' : 'This translation may be out of date and is awaiting an update.'}</aside>}
 <h1 id="_top">{entry.data.title}</h1>
+{entry.data.version && <p class="article-metadata">
+  <span>{locale === 'zh-cn' ? '版本' : 'Version'} {entry.data.version}</span>
+  <span>{locale === 'zh-cn' ? '更新日期' : 'Updated'} <time datetime={entry.data.updated}>{entry.data.updated}</time></span>
+</p>}
 <style>
   h1 { margin-top: 1rem; font-size: var(--sl-text-h1); line-height: var(--sl-line-height-headings); font-weight: 600; color: var(--sl-color-white); }
+  .article-metadata { display: flex; flex-wrap: wrap; gap: .35rem 1.25rem; margin-top: .75rem; color: var(--sl-color-gray-2); font-size: var(--sl-text-sm); }
   .translation-notice { border-left: 3px solid #bb8a3c; padding: .75rem 1rem; background: #f7ead3; color: #62481d; font-size: .9rem; }
 </style>

@@ -9,5 +9,6 @@ export const collections = {
     contentId: z.string(),
     translationStatus: z.enum(['current', 'needs-sync']),
     updated: z.string(),
+    version: z.string().optional(),
   }) }) }),
 };

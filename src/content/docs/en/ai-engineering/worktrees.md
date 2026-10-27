@@ -1,11 +1,11 @@
 ---
-title: "Why use Git worktrees?"
-description: "Isolate concurrent work without separate clones"
+title: "1+1+1 (Worktree+Spec+Plan) Development: Starting Parallel Work"
+description: "1+1+1 (Worktree+Spec+Plan) Development: Starting Parallel Work"
 contentId: "ai-engineering/worktrees"
-translationStatus: current
+translationStatus: needs-sync
 updated: "2026-10-27"
+version: "0.1.0"
+sidebar:
+  order: 7
+  label: "7. 1+1+1 (Worktree+Spec+Plan) Development: Starting Parallel Work"
 ---
-
-A Git worktree lets you check out another branch in a separate directory while sharing the same repository. This is useful when people or agents work on different tasks at the same time.
-
-Give each task a clear branch and directory, and avoid simultaneous edits to the same checkout. Isolation reduces accidental interference, but does not resolve conflicting changes automatically: review and integrate each branch deliberately. Worktrees share repository data, so they are not a security boundary.
