@@ -1,14 +1,36 @@
 ---
-title: "AI engineering"
-description: "Methods for building software with AI"
+title: "AI Engineering"
+description: "AI Engineering"
 contentId: "ai-engineering/index"
 translationStatus: current
 updated: "2026-10-27"
+sidebar:
+  order: 0
 ---
 
-AI can help implement software, but engineering still requires clear intent, isolation, verification, and human judgment. These guides are useful independently of SteerLine.
+## Getting Started
 
-- [Use a specification](./specs/)
-- [Why use Git worktrees?](./worktrees/)
-- [Understand AI limitations](./limitations/)
-- [The human role in larger projects](./human-role/)
+1. [Why You Need a Serious Guide to AI Software Project Development](./why-serious-ai-development/)
+2. [AI Capabilities, Limitations, and the Human Role](./limitations/)
+3. [An Index of Useful Prerequisite Knowledge](./prerequisites/)
+4. [An Index of Outdated or Less Important Knowledge](./outdated-knowledge/)
+5. [Git](./git/)
+6. [Spec-Driven Development](./specs/)
+7. [1+1+1 (Worktree+Spec+Plan) Development: Starting Parallel Work](./worktrees/)
+
+## Advanced
+
+1. [Effective Information and the Quality Threshold for Specs](./effective-information-and-spec-quality/)
+2. [Testing and Acceptance](./testing-and-acceptance/)
+3. [Auditing](./auditing/)
+4. [Layered Documentation Management](./layered-documentation/)
+5. [Choosing Models and Agents](./models-and-agents/)
+6. [What Problems Does SteerLine Solve?](./why-steerline/)
+
+## AI and Cognitive Science
+
+1. [AI Capabilities and Limitations](./cognitive-science/ai-limitations/)
+2. [Causal Rationality](./cognitive-science/causal-rationality/)
+3. [Engineering Thinking](./cognitive-science/engineering-thinking/)
+4. [Structural Abstraction](./cognitive-science/structural-abstraction/)
+5. [Knowledge Evolution Across AI Generations](./cognitive-science/generational-knowledge-evolution/)

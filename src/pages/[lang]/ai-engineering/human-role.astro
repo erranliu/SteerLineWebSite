@@ -1,0 +1,6 @@
+---
+export function getStaticPaths() {
+  return ['en', 'zh-cn'].map((lang) => ({ params: { lang } }));
+}
+return Astro.redirect(`/${Astro.params.lang}/ai-engineering/limitations/`, 301);
+---
