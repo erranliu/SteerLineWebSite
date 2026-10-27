@@ -12,10 +12,11 @@ export default defineConfig({
     },
     social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/erranliu/SteerLine' }],
     customCss: ['./src/styles/docs.css'],
-    components: { PageTitle: './src/components/PageTitle.astro', LanguageSelect: './src/components/LanguageSelect.astro', ThemeProvider: './src/components/ThemeProvider.astro', ThemeSelect: './src/components/ThemeSelect.astro', Search: './src/components/Search.astro' },
+    components: { Header: './src/components/DocsHeader.astro', Sidebar: './src/components/DocsSidebar.astro', Footer: './src/components/DocsFooter.astro', PageTitle: './src/components/PageTitle.astro', LanguageSelect: './src/components/LanguageSelect.astro', ThemeProvider: './src/components/ThemeProvider.astro', ThemeSelect: './src/components/ThemeSelect.astro', Search: './src/components/Search.astro' },
     sidebar: [
       {
-        label: 'AI Engineering / AI 开发',
+        label: 'Learn AI Development',
+        translations: { 'zh-CN': '学习 AI 开发' },
         items: [
           'ai-engineering',
           {
@@ -70,8 +71,8 @@ export default defineConfig({
           },
         ],
       },
-      { label: 'SteerLine Guide / 使用教程', autogenerate: { directory: 'steerline' } },
-      { label: 'Reference / 参考文档', autogenerate: { directory: 'docs' } },
+      { label: 'Learn SteerLine', translations: { 'zh-CN': '学习 SteerLine' }, autogenerate: { directory: 'steerline' } },
+      { label: 'Docs', translations: { 'zh-CN': '文档' }, autogenerate: { directory: 'docs' } },
     ],
   })],
 });

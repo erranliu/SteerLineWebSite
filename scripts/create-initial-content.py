@@ -28,7 +28,7 @@ SteerLine 尚未发布。当前实现、验收边界和开发进展请查看[项
 - [Why use Git worktrees?](./worktrees/)
 - [Understand AI limitations](./limitations/)
 - [The human role in larger projects](./human-role/)'''),
-        ('AI 开发教程', '用 AI 构建软件的工程方法', '''AI 可以帮助实现软件，但工程仍需要清晰的目标、隔离、验证和人的判断。这些教程不依赖 SteerLine，也可以独立阅读。
+        ('学习 AI 开发', '用 AI 构建软件的工程方法', '''AI 可以帮助实现软件，但工程仍需要清晰的目标、隔离、验证和人的判断。这些教程不依赖 SteerLine，也可以独立阅读。
 
 - [如何使用 Spec](./specs/)
 - [为什么使用 Git worktree](./worktrees/)
@@ -81,7 +81,7 @@ Make responsibilities and decision points explicit. Review plans and results aga
 - [DAGs and task dependencies](./dag/)
 
 SteerLine has not yet been released. Step-by-step installation and operational tutorials will be added when they can be verified against a stable version.'''),
-        ('SteerLine 教程', '理解 SteerLine 背后的理念', '''SteerLine 围绕 Roadmap 组织规划、任务依赖与 AI 执行。可以先学习核心理念，再通过项目仓库了解当前实现。
+        ('学习 SteerLine', '理解 SteerLine 背后的理念', '''SteerLine 围绕 Roadmap 组织规划、任务依赖与 AI 执行。可以先学习核心理念，再通过项目仓库了解当前实现。
 
 - [Roadmap 驱动开发](./roadmap/)
 - [DAG 与任务依赖](./dag/)

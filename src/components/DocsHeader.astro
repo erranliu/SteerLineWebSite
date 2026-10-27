@@ -1,0 +1,11 @@
+---
+import { getCollection } from 'astro:content';
+import SiteHeader from './SiteHeader.astro';
+const { entry, locale } = Astro.locals.starlightRoute;
+const lang = locale === 'zh-cn' ? 'zh-cn' : 'en';
+const target = lang === 'en' ? 'zh-cn' : 'en';
+const docs = await getCollection('docs');
+const translation = docs.find((doc) => doc.data.contentId === entry.data.contentId && doc.id.startsWith(`${target}/`));
+const translationPath = translation ? `/${translation.id.replace(/\/index$/, '')}/` : null;
+---
+<SiteHeader lang={lang} translationPath={translationPath} />

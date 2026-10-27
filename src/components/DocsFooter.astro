@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import SiteFooter from './SiteFooter.astro';
+import { learningGroups } from '../data/learning';
+const { entry, locale, pagination } = Astro.locals.starlightRoute;
+const zh = locale === 'zh-cn';
+const lang = zh ? 'zh-cn' : 'en';
+const isLearning = entry.data.contentId?.startsWith('ai-engineering/');
+const docs = await getCollection('docs');
+const articles = learningGroups.flatMap((group) => group.items).map((slug) => docs.find((doc) => doc.data.contentId === `ai-engineering/${slug}` && doc.id.startsWith(`${lang}/`))).filter((doc) => !!doc);
+const current = articles.findIndex((doc) => doc.id === entry.id);
+const link = (doc: typeof articles[number] | undefined) => doc ? { href: `/${doc.id}/`, label: doc.data.title } : undefined;
+const sectionPrefix = `/${lang}/${entry.data.contentId?.split('/')[0] ?? 'docs'}/`;
+const prev = isLearning ? link(articles[current - 1]) : pagination.prev?.href.startsWith(sectionPrefix) ? pagination.prev : undefined;
+const next = isLearning ? link(articles[current + 1]) : pagination.next?.href.startsWith(sectionPrefix) ? pagination.next : undefined;
+---
+<div class="article-end">
+  {isLearning && <a class="article-back" href={`/${lang}/ai-engineering/`}>← {zh ? '返回学习首页' : 'Back to learning overview'}</a>}
+  <nav class="article-pagination" aria-label={zh ? '前后篇导航' : 'Article navigation'}>
+    {prev ? <a href={prev.href} rel="prev"><span>← {zh ? '上一篇' : 'Previous'}</span><strong>{prev.label.replace(/^\d+\.\s*/, '')}</strong></a> : <span></span>}
+    {next && <a href={next.href} rel="next"><span>{zh ? '下一篇' : 'Next'} →</span><strong>{next.label.replace(/^\d+\.\s*/, '')}</strong></a>}
+  </nav>
+  <SiteFooter lang={lang} />
+</div>

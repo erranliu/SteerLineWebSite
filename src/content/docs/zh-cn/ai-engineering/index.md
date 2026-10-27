@@ -1,6 +1,6 @@
 ---
-title: "AI 开发教程"
-description: "AI 开发教程"
+title: "学习 AI 开发"
+description: "从理解 AI 的边界，到组织真实的软件项目，建立自己的开发方法。"
 contentId: "ai-engineering/index"
 translationStatus: current
 updated: "2026-10-27"

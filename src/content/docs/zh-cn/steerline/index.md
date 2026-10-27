@@ -1,5 +1,5 @@
 ---
-title: "SteerLine 教程"
+title: "学习 SteerLine"
 description: "理解 SteerLine 背后的理念"
 contentId: "steerline/index"
 translationStatus: current

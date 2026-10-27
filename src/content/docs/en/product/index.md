@@ -15,3 +15,5 @@ Start with the desired outcome and a specification. Organize work in a roadmap, 
 ## Project status
 
 SteerLine has not yet been released. Consult the [project repository](https://github.com/erranliu/SteerLine) for its current implementation, acceptance boundaries, and development progress. The workflow above describes the direction of the project; it is not a guarantee that every step is available as a stable product feature.
+
+See [project updates](../updates/) for progress collected on this website.

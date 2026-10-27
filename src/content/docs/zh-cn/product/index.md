@@ -15,3 +15,5 @@ SteerLine 是一个开源项目，围绕 Roadmap 组织规划、任务依赖与 
 ## 项目状态
 
 SteerLine 尚未发布。当前实现、验收边界和开发进展请查看[项目仓库](https://github.com/erranliu/SteerLine)。以上工作流程说明项目方向，并不代表每个环节都已作为稳定功能提供。
+
+也可以查看[项目更新](../updates/)，了解官网整理的项目进展。
