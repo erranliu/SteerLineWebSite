@@ -35,3 +35,13 @@ sidebar:
 3. [Engineering Thinking](./cognitive-science/engineering-thinking/)
 4. [Structural Abstraction](./cognitive-science/structural-abstraction/)
 5. [Knowledge Evolution Across AI Generations](./cognitive-science/generational-knowledge-evolution/)
+
+## Outdated Development Methods
+
+1. [session handoff](./outdated-methods/session-handoff/)
+2. [superpowers](./outdated-methods/superpowers/)
+3. [agent team](./outdated-methods/agent-team/)
+4. [code repo](./outdated-methods/code-repo/)
+5. [Role Assignment](./outdated-methods/role-assignment/)
+6. [Prompting Techniques](./outdated-methods/prompting-techniques/)
+7. [agents.md](./outdated-methods/agents-md/)

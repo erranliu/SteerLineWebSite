@@ -35,3 +35,13 @@ sidebar:
 3. [工程学思维](./cognitive-science/engineering-thinking/)
 4. [结构抽象](./cognitive-science/structural-abstraction/)
 5. [AI的代际知识演化](./cognitive-science/generational-knowledge-evolution/)
+
+## 过期的开发方式
+
+1. [session handoff](./outdated-methods/session-handoff/)
+2. [superpowers](./outdated-methods/superpowers/)
+3. [agent team](./outdated-methods/agent-team/)
+4. [code repo](./outdated-methods/code-repo/)
+5. [角色指定](./outdated-methods/role-assignment/)
+6. [提示词技巧](./outdated-methods/prompting-techniques/)
+7. [agents.md](./outdated-methods/agents-md/)
