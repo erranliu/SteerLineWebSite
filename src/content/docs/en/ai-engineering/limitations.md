@@ -52,7 +52,7 @@ Which project facts the next call can use depends on the context supplied by the
 
 When a project substantially exceeds a single context window, the model can access only part of it during a given task. It must select relevant code, read documentation, and retrieve earlier decisions before proceeding.
 
-A longer context window helps, but capacity and the ability to use information effectively are different things. Logs, old discussions, and unrelated code add interference. Understanding several requirements and how they relate to the current change is also harder than finding a particular sentence. See [Anthropic's explanation of context engineering](https://www.anthropic.com/research/effective-context-engineering-for-ai-agents) for a discussion of these engineering problems.
+A longer context window helps, but capacity and the ability to use information effectively are different things. Logs, old discussions, and unrelated code add interference. Understanding several requirements and how they relate to the current change is also harder than finding a particular sentence.
 
 For example, the model may correctly repeat that monetary amounts must use integer fen, yet update a page to submit a component's value in yuan without converting it. It has not forgotten the sentence; it has failed to apply the constraint in the implementation. Repeatedly asking it to "remember every requirement" does not solve this problem.
 
@@ -72,7 +72,7 @@ The more smoothly the subsequent work proceeds, the further the flawed assumptio
 
 Tests do not automatically remove this difficulty. If they omit a key constraint, passing them only shows that the behavior they check matches expectations. It does not prove the project meets every requirement.
 
-Constraint maintenance cannot therefore be reduced to "AI forgot." It also includes failing to obtain necessary information, failing to apply known requirements to the current task, and failing to update and propagate changes correctly. The more requirements there are and the longer work continues, the harder it becomes to keep them satisfied together. [Research on multi-turn constraint adherence](https://arxiv.org/abs/2605.06353) specifically examines this class of problem.
+Constraint maintenance cannot therefore be reduced to "AI forgot." It also includes failing to obtain necessary information, failing to apply known requirements to the current task, and failing to update and propagate changes correctly. The more requirements there are and the longer work continues, the harder it becomes to keep them satisfied together.
 
 ## How engineering methods help AI maintain constraints
 
@@ -114,7 +114,7 @@ A person can quickly spot an awkward layout on a page. Opening a dialog once may
 
 Dynamic behavior is harder still. A screenshot cannot fully convey how an element follows a drag, a jump during scrolling, or the timing between several state transitions. The model must obtain information over time and identify which changes matter. Describing one frame does not mean it understands the entire interaction.
 
-Some models already support video understanding and analysis at specific timestamps, such as [Gemini's video understanding capabilities](https://ai.google.dev/gemini-api/docs/video-understanding). But describing video content and reliably diagnosing subtle interactions in a business application, then implementing and verifying a fix, remain different tasks.
+Some models, such as Gemini, already support video understanding and analysis at specific timestamps. But describing video content and reliably diagnosing subtle interactions in a business application, then implementing and verifying a fix, remain different tasks.
 
 People need to provide useful observations, turn "something looks wrong" into requirements that can be acted on and checked, and participate in acceptance work AI cannot yet perform reliably. Much of the implementation can still be delegated to AI once the problem is expressed in a form it can handle effectively.
 
@@ -140,3 +140,9 @@ Escaping these low-value patterns requires putting people's time back into work 
 **The contribution people make per unit of time on these tasks usually diminishes.** For a given problem or development stage, finding the right representation, establishing an effective engineering system, and correcting a critical deviation can substantially improve the work that follows. Once those tasks are done, the additional contribution from further adjustment, inspection, and intervention gradually falls.
 
 Continuous participation therefore does not require constant intervention in every step. People should intervene where they can change the problem's direction, improve the engineering system, or eliminate critical deviations, while letting AI work autonomously where the necessary conditions are in place. A good engineering system preserves delivery outcomes while reducing repeated demands on people's time and attention.
+
+## References
+
+- [Effective context engineering for AI agents — Anthropic](https://www.anthropic.com/research/effective-context-engineering-for-ai-agents)
+- [SEQUOR: A Multi-Turn Benchmark for Realistic Constraint Following](https://arxiv.org/abs/2605.06353)
+- [Gemini API video understanding](https://ai.google.dev/gemini-api/docs/video-understanding)
