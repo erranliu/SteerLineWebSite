@@ -3,8 +3,8 @@ title: "Why You Need a Serious Guide to AI Software Project Development"
 description: "For developers aiming to deliver small and midsize commercial software projects or larger ones: why AI development requires systematic learning, and how to build engineering skills as methods change."
 contentId: "ai-engineering/why-serious-ai-development"
 translationStatus: current
-updated: "2026-10-27"
-version: "0.1.1"
+updated: "2026-10-28"
+version: "0.1.2"
 sidebar:
   order: 1
   label: "1. Why You Need a Serious Guide to AI Software Project Development"
@@ -12,9 +12,10 @@ sidebar:
 
 With AI development tools, everyone suddenly seems capable of anything.
 
-Describe an idea, and AI generates code, builds pages, and fixes its own errors. Something that once required a long period of learning can now become a working application after a short conversation. It is easy to conclude that, as long as AI is smart enough, software development is simply a matter of telling it what to do next.
+Describe an idea, and AI generates code, builds pages, and fixes its own errors. Something that once required a long period of learning can now become a working application after a short conversation. It is easy to conclude that, as long as AI is smart enough, software development is simply a matter of telling it your requirements step by step.
 
-As of October 2026, I have yet to see a traditionally large software system, or a midsize commercial application, built entirely this way. Getting AI to write code and organizing AI to deliver a commercial software project are completely different skills. This guide addresses the latter.
+As of October 2026, I have yet to see a traditionally large software system, or a midsize commercial application, that can be developed this way.
+Organizing AI to complete a commercial software project that can be reliably delivered and maintained requires completely different skills.
 
 ## Plenty of information, but no coherent learning path
 
@@ -28,13 +29,15 @@ Learning then becomes collecting: saving prompts, installing new tools, and copy
 
 ## The method you just learned may already be obsolete
 
-To make matters worse, AI development knowledge changes extremely quickly. In March this year, superpowers and session handoff were mainstream development methods. Today, they are obsolete and no longer necessary. A workflow you have just spent time learning needs to be abandoned only a few months later.
+To make matters worse, AI development knowledge changes extremely quickly. In March this year, superpowers and session handoff were mainstream development methods. Today, they are obsolete and no longer necessary.
 
-Many development methods were created to compensate for limitations in the models and tools available at the time. Once model capabilities improve and tools fill those gaps, the methods lose their reason to exist. Continuing to follow the old workflow only adds work.
+Many development methods were created to compensate for limitations in the models and tools available at the time. Once model capabilities improve and tools fill those gaps, the methods lose their reason to exist.
 
-Role assignment and multi-agent role-playing, popular last year, are also outdated approaches. Imposing a human company's organizational structure on AI does not solve the problems of expressing requirements, dividing tasks, and verifying results. Collaboration between agents should be organized around tasks and information.
+Many other development methods have come to be regarded as mistaken as our understanding of AI development has evolved.
 
-When learning a method, you must therefore understand what problem it solves and when to stop using it. If you only memorize the steps, the next round of changes will quickly leave you behind.
+For example, role assignment and multi-agent role-playing, popular last year, are now outdated approaches. Imposing a human company's organizational structure on AI does not solve the problems of expressing requirements, dividing tasks, and verifying results. Collaboration between agents should be organized around tasks and information.
+
+When learning a method, it is therefore best to understand what problem it solves and when to stop using it.
 
 ## AI makes it easy to believe your development process is sound
 
@@ -63,6 +66,12 @@ AI now has considerable intelligence and the ability to execute work. You can tr
 A background in software engineering will make learning somewhat easier, but you will still face the challenge of changing established ways of thinking. Among people without that background, I repeatedly observe a tendency to underestimate the difficulty of engineering software with AI. AI's ability to produce working pieces quickly makes it even easier to misjudge the effort the whole project requires.
 
 That learning and practice should build lasting skills. What you learn about requirements, task organization, AI capabilities, and delivery in one project should carry into the next. If every project sends you back to searching for a popular workflow and guessing how to work with AI, you have not yet developed a method of your own.
+
+## This is a counterintuitive discipline
+
+Once AI has intelligence and the ability to execute work, familiar project management judgments about progress and which human activities are useful largely cease to apply. For example, I see every beginner describe a requirement for one part of a project, watch AI produce an impressive implementation, and conclude that the project is progressing well. In this course, I will explain why this contributes almost nothing to the project's progress. When execution becomes cheap, execution itself creates almost no value.
+
+We believe that, without serious study, most people can do very little to move an AI development project toward commercial delivery. Almost everything they do intuitively contributes little to that goal. As you ask AI to implement more features, you also accumulate more technical debt, spaghetti code, and behavior that is not reliably constrained. As development continues, those behaviors keep drifting, introducing new bugs and slowing development further. You remain trapped in the cycle, unable to deliver. (Unless you stay with a partly manual process of reviewing code line by line from the outset, which also prevents you from realizing the productivity gains AI offers.)
 
 ## What this guide provides
 
