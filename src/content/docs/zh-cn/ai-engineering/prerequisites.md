@@ -4,7 +4,7 @@ description: "用最小介绍认识AI开发的核心概念，并区分曾经重�
 contentId: "ai-engineering/prerequisites"
 translationStatus: current
 updated: "2026-10-29"
-version: "0.1.5"
+version: "0.1.6"
 sidebar:
   order: 3
   label: "3. 当前有用的前置知识索引"
@@ -12,9 +12,9 @@ sidebar:
 
 用AI开发软件，需要理解一些基本概念。这篇提供最小介绍，让你读懂后续教程，知道遇到问题时应该查什么。
 
-截至2026年10月，我们把这些知识分成两档：仍然需要掌握的核心概念，以及有用但不需要重点学习的非核心概念。第二档再区分曾经重要、如今退为辅助的知识，和一直非核心但仍然有用的工具概念。这个划分围绕使用AI交付软件的需要；开发模型或Agent平台，会有另外的学习要求。
+截至2026年10月，我们把这些知识分成两档：需要持续加深理解的核心概念，以及有用但不需要重点学习的非核心概念。第二档再区分曾经重要、如今退为辅助的知识，和一直非核心但仍然有用的工具概念。这个划分围绕使用AI交付软件的需要；开发模型或Agent平台，会有另外的学习要求。
 
-## 第一档：仍然需要掌握的核心概念
+## 第一档：需要持续加深理解的核心概念
 
 本节只做索引，帮助初学者建立基本概念，也帮助已有经验的开发者辨别哪些知识仍然是核心。这里的简短介绍只是学习入口。随着学习和项目实践的推进，每个核心概念都应该尽可能深入地理解。
 
@@ -55,6 +55,10 @@ Plan说明怎样完成当前Spec，包括实现方案、步骤、依赖和验证
 ### Git
 
 Git是版本控制系统，用来记录变更、比较差异、管理分支和合并工作，为审查、追踪问题和恢复已记录的版本提供依据。至少要理解仓库、提交（commit）、差异（diff）、分支（branch）、合并（merge）和冲突。命令可以让AI执行，人需要判断哪些变更属于当前任务、哪些结果可以保留。
+
+### PR（Pull Request，拉取请求）
+
+PR是在代码托管平台上提出合并一组变更的请求，集中展示分支差异、讨论、审查和自动检查结果。它把实现、验证和合并连接起来。提交代码、创建PR和完成合并是不同阶段；是否可以合并，应根据Spec、审查意见和验收证据判断。
 
 ### Git worktree
 
@@ -145,6 +149,7 @@ Sandbox是限制执行环境的沙箱；权限机制规定Agent可以访问哪�
 - 约束、验收与搜索空间：本教程上一篇[AI的能力限制和人的角色](../limitations/)。
 - Spec与Plan：[Specification-Driven Development — GitHub Spec Kit](https://github.com/github/spec-kit/blob/main/spec-driven.md)。参考概念区分，不需要照搬整套流程。
 - Git：[Pro Git中文版](https://git-scm.com/book/zh/v2)，优先查阅“起步”“Git基础”“Git分支”；[git-worktree官方文档](https://git-scm.com/docs/git-worktree)。
+- PR：[Pull requests — GitHub文档](https://docs.github.com/en/pull-requests/reference/pull-requests)。
 - Harness：[Effective harnesses for long-running agents — Anthropic](https://www.anthropic.com/research/effective-harnesses-for-long-running-agents)。用于了解其职责，文中流程不作为本教程的必学方法。
 - Skill：[Agent Skills Overview — 官方文档](https://agentskills.io/home)。
 - MCP：[What is the Model Context Protocol? — 官方文档](https://modelcontextprotocol.io/docs/getting-started/intro)。

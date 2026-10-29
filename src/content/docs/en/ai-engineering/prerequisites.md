@@ -4,7 +4,7 @@ description: "Brief introductions to core AI development concepts, formerly impo
 contentId: "ai-engineering/prerequisites"
 translationStatus: current
 updated: "2026-10-29"
-version: "0.1.5"
+version: "0.1.6"
 sidebar:
   order: 3
   label: "3. An Index of Useful Prerequisite Knowledge"
@@ -12,9 +12,9 @@ sidebar:
 
 Developing software with AI requires a few basic concepts. This article gives you the minimum introduction needed to follow the rest of the course and know what to look up when a problem arises.
 
-As of October 2026, we divide this knowledge into two tiers: core concepts you still need to understand, and useful concepts that do not require intensive study. The second tier distinguishes formerly important ideas that now play a supporting role from useful tool concepts that have always been non-core. This classification serves people using AI to deliver software. Building models or agent platforms brings different learning requirements.
+As of October 2026, we divide this knowledge into two tiers: core concepts to understand more deeply over time, and useful concepts that do not require intensive study. The second tier distinguishes formerly important ideas that now play a supporting role from useful tool concepts that have always been non-core. This classification serves people using AI to deliver software. Building models or agent platforms brings different learning requirements.
 
-## Tier one: core concepts you still need to understand
+## Tier one: core concepts to understand more deeply over time
 
 This section is an index: it helps beginners establish basic concepts and experienced developers identify which knowledge remains core. These brief introductions are entry points. As you progress through the course and work on projects, seek the deepest possible understanding of each core concept.
 
@@ -55,6 +55,10 @@ A Plan explains how to implement the current Spec: the approach, steps, dependen
 ### Git
 
 Git is a version control system for recording changes, comparing differences, managing branches, and merging work. It supports review, investigation, and recovery of recorded versions. At minimum, understand repositories, commits, diffs, branches, merges, and conflicts. AI can execute commands; people need to judge which changes belong to the task and which results to retain.
+
+### PR (Pull Request)
+
+A pull request proposes merging a set of changes on a code hosting platform, bringing together branch differences, discussion, reviews, and automated check results. It connects implementation, verification, and merging. Committing code, opening a PR, and completing a merge are different stages. Decide whether to merge based on the Spec, review feedback, and acceptance evidence.
 
 ### Git worktree
 
@@ -145,6 +149,7 @@ Consult these materials as needed; you do not need to finish them before develop
 - Constraints, acceptance, and search space: the preceding article, [AI Capabilities, Limitations, and the Human Role](../limitations/).
 - Specs and Plans: [Specification-Driven Development — GitHub Spec Kit](https://github.com/github/spec-kit/blob/main/spec-driven.md). Reference the conceptual distinctions without adopting the entire workflow.
 - Git: [Pro Git, Chinese edition](https://git-scm.com/book/zh/v2) and [English edition](https://git-scm.com/book/en/v2). Start with “Getting Started,” “Git Basics,” and “Git Branching.” See also the [official git-worktree documentation](https://git-scm.com/docs/git-worktree).
+- PRs: [Pull requests — GitHub documentation](https://docs.github.com/en/pull-requests/reference/pull-requests).
 - Harnesses: [Effective harnesses for long-running agents — Anthropic](https://www.anthropic.com/research/effective-harnesses-for-long-running-agents). A reference for their responsibilities; its workflow is not required by this course.
 - Skills: [Agent Skills Overview — Official documentation](https://agentskills.io/home).
 - MCP: [What is the Model Context Protocol? — Official documentation](https://modelcontextprotocol.io/docs/getting-started/intro).
