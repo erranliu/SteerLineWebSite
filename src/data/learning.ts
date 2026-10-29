@@ -7,7 +7,7 @@ export const learningGroups = [
   {
     id: 'advanced', title: ['进阶阶段', 'Going further'],
     description: ['把实现推进到可靠交付：关注 Spec 质量、测试验收、审计与项目管理。', 'Move from implementation to reliable delivery with better specs, testing, audits, and project planning.'],
-    items: ['effective-information-and-spec-quality', 'testing-and-acceptance', 'auditing', 'layered-documentation', 'models-and-agents', 'why-steerline', 'project-milestones'],
+    items: ['effective-information-and-spec-quality', 'testing-and-acceptance', 'auditing', 'layered-documentation', 'models-and-agents', 'why-steerline', 'project-milestones', 'designing-parallel-work', 'soft-and-hard-workflows', 'pursuing-convergence'],
   },
   {
     id: 'cognitive-science', title: ['AI 和认知科学', 'AI and cognitive science'],

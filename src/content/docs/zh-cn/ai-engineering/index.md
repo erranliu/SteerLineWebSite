@@ -27,6 +27,9 @@ sidebar:
 5. [模型和Agent的选择](./models-and-agents/)
 6. [SteerLine解决什么问题](./why-steerline/)
 7. [项目的关键进度，需求、关键路径验收和后续搜索空间收敛](./project-milestones/)
+8. [设计并行](./designing-parallel-work/)
+9. [软流程和硬流程](./soft-and-hard-workflows/)
+10. [追求收敛，而不是正确或最优](./pursuing-convergence/)
 
 ## AI和认知科学
 
