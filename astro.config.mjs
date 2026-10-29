@@ -43,6 +43,9 @@ export default defineConfig({
               'ai-engineering/models-and-agents',
               'ai-engineering/why-steerline',
               'ai-engineering/project-milestones',
+              'ai-engineering/designing-parallel-work',
+              'ai-engineering/soft-and-hard-workflows',
+              'ai-engineering/pursuing-convergence',
             ],
           },
           {

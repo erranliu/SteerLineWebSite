@@ -27,6 +27,9 @@ sidebar:
 5. [Choosing Models and Agents](./models-and-agents/)
 6. [What Problems Does SteerLine Solve?](./why-steerline/)
 7. [Key Project Milestones: Requirements, Critical Path Acceptance, and Subsequent Search Space Convergence](./project-milestones/)
+8. [Designing Parallel Work](./designing-parallel-work/)
+9. [Soft and Hard Workflows](./soft-and-hard-workflows/)
+10. [Pursuing Convergence Rather Than Correctness or Optimality](./pursuing-convergence/)
 
 ## AI and Cognitive Science
 
