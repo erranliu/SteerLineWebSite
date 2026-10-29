@@ -15,6 +15,11 @@ const prev = isLearning ? link(articles[current - 1]) : pagination.prev?.href.st
 const next = isLearning ? link(articles[current + 1]) : pagination.next?.href.startsWith(sectionPrefix) ? pagination.next : undefined;
 ---
 <div class="article-end">
+  {isLearning && <p class="article-discussion">
+    {zh ? '有课程相关问题，可以到' : 'Questions about the course? Discuss them in the '}
+    <a href="https://github.com/erranliu/SteerLineWebSite/discussions/categories/learn-ai-development">{zh ? '课程讨论区' : 'course forum'}</a>
+    {zh ? '交流。' : '.'}
+  </p>}
   {isLearning && <a class="article-back" href={`/${lang}/ai-engineering/`}>← {zh ? '返回学习首页' : 'Back to learning overview'}</a>}
   <nav class="article-pagination" aria-label={zh ? '前后篇导航' : 'Article navigation'}>
     {prev ? <a href={prev.href} rel="prev"><span>← {zh ? '上一篇' : 'Previous'}</span><strong>{prev.label.replace(/^\d+\.\s*/, '')}</strong></a> : <span></span>}
