@@ -3,7 +3,7 @@ title: "Learn AI Development"
 description: "Build your AI development practice with clear specifications, reliable verification, and human judgment."
 contentId: "ai-engineering/index"
 translationStatus: current
-updated: "2026-10-27"
+updated: "2026-10-29"
 sidebar:
   order: 0
 ---
@@ -13,7 +13,7 @@ sidebar:
 1. [Why You Need a Serious Guide to AI Software Project Development](./why-serious-ai-development/)
 2. [AI Capabilities, Limitations, and the Human Role](./limitations/)
 3. [An Index of Useful Prerequisite Knowledge](./prerequisites/)
-4. [An Index of Outdated or Less Important Knowledge](./outdated-knowledge/)
+4. [Outdated AI Knowledge and Once-Popular Misconceptions](./outdated-knowledge/)
 5. [Git](./git/)
 6. [Spec-Driven Development](./specs/)
 7. [1+1+1 (Worktree+Spec+Plan) Development: Starting Parallel Work](./worktrees/)
