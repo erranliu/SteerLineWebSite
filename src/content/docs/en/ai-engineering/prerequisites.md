@@ -4,7 +4,7 @@ description: "Brief introductions to core AI development concepts, formerly impo
 contentId: "ai-engineering/prerequisites"
 translationStatus: current
 updated: "2026-10-29"
-version: "0.1.4"
+version: "0.1.5"
 sidebar:
   order: 3
   label: "3. An Index of Useful Prerequisite Knowledge"
@@ -23,6 +23,10 @@ As your understanding deepens, these core concepts will continually reshape how 
 ### Models and agents
 
 A model reasons and generates output from the information it receives. A coding agent organizes continuous work around it: reading files, changing code, running commands, checking results, and deciding what to do next. The same model can perform differently across tools and environments. Diagnose whether a problem comes from model capability, information, tools, or the organization of work.
+
+### Session
+
+A session is a development tool's unit for organizing ongoing work, including conversation, tool execution records, and related state. It spans multiple model calls and may continue across context compaction. A continuing session does not mean every historical detail remains in the current context. How sessions are saved, resumed, and share information depends on the tool and its configuration.
 
 ### Context
 
@@ -92,7 +96,17 @@ Persistent memory stores information outside the current context and reloads it 
 
 ### Always non-core, but still useful
 
-These terms describe tool usage and integration. Knowing their purpose helps you choose and use tools without first learning their implementation.
+These terms help you understand model usage, settings, and tool usage and integration. Knowing their purpose helps you choose and use tools without first learning their implementation.
+
+#### Token
+
+Tokens measure the amount of information a model processes. Common usage statistics cover input, output, and reasoning. Understanding tokens helps you interpret context capacity, usage, and costs. You do not need to study tokenization or manually count the tokens in each passage. Consuming more tokens does not, by itself, mean a task was completed better.
+
+#### Thinking effort
+
+Thinking effort controls how much reasoning a model applies to a task. In general, higher effort trades more time and token consumption for a modest increase in the likelihood of successful task delivery. An exception is that some smaller models are effectively unusable for serious development at their low and medium settings.
+
+The full judgment depends on the model and task, and will be covered in a separate lesson on model selection. For now, use a simple strategy: choose the high setting across the board. This is usually a reasonable default.
 
 #### CLI
 
@@ -123,6 +137,7 @@ A sandbox restricts the execution environment. Permissions specify which files, 
 Consult these materials as needed; you do not need to finish them before developing software. The official sources describe mechanisms and usage. This article's judgments about learning priorities and applicability center on using AI to deliver software.
 
 - Models and agents: [Building effective agents — Anthropic](https://www.anthropic.com/research/building-effective-agents).
+- Sessions: [Run and continue sessions — OpenAI documentation](https://developers.openai.com/api/docs/guides/agents-api/sessions). A concrete implementation of sessions and multi-turn work; learning the API is not a prerequisite.
 - Context and tokens: [Context windows — Claude documentation](https://platform.claude.com/docs/en/build-with-claude/context-windows).
 - Compaction: [Compaction overview — Claude documentation](https://platform.claude.com/docs/en/build-with-claude/compaction).
 - Context organization and on-demand retrieval: [Effective context engineering for AI agents — Anthropic](https://www.anthropic.com/research/effective-context-engineering-for-ai-agents).
@@ -136,6 +151,7 @@ Consult these materials as needed; you do not need to finish them before develop
 - Subagents: [Create custom subagents — Claude Code documentation](https://code.claude.com/docs/en/sub-agents).
 - RAG: [Introducing Contextual Retrieval — Anthropic](https://www.anthropic.com/research/contextual-retrieval). A reference for retrieval mechanisms, rather than a management approach for project documents.
 - Persistent memory and instruction files: [How Claude remembers your project — Claude Code documentation](https://code.claude.com/docs/en/memory).
+- Thinking effort: [Reasoning models — OpenAI documentation](https://developers.openai.com/api/docs/guides/reasoning). A reference for the parameter's meaning; the model selection lesson will cover how to choose a setting.
 - CLI: [About GitHub CLI — GitHub documentation](https://docs.github.com/en/github-cli/github-cli/about-github-cli), a concrete example of a command-line tool.
 - TUI: [Textual documentation](https://textual.textualize.io/). View examples of terminal interfaces; learning the framework is unnecessary.
 - APIs and SDKs: [Libraries for the REST API — GitHub documentation](https://docs.github.com/en/rest/using-the-rest-api/libraries-for-the-rest-api).

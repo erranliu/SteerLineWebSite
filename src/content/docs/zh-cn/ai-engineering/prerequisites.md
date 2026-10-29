@@ -4,7 +4,7 @@ description: "用最小介绍认识AI开发的核心概念，并区分曾经重�
 contentId: "ai-engineering/prerequisites"
 translationStatus: current
 updated: "2026-10-29"
-version: "0.1.4"
+version: "0.1.5"
 sidebar:
   order: 3
   label: "3. 当前有用的前置知识索引"
@@ -23,6 +23,10 @@ sidebar:
 ### 模型与Agent
 
 模型根据提供的信息进行推理和生成。开发Agent则围绕模型组织连续工作：读取文件、修改代码、运行命令、检查结果，再决定下一步。同一个模型在不同工具和环境中的表现也会不同，遇到问题时需要分清是模型能力不足，还是信息、工具或工作组织出了问题。
+
+### Session（会话）
+
+Session是开发工具组织一段持续工作的单位，包含对话、工具执行记录和相关状态。它会经历多次模型调用，也可能跨越上下文压缩；会话继续，不代表历史细节都还在当前上下文中。会话怎样保存、恢复、与其他会话共享信息，取决于工具和配置。
 
 ### 上下文（Context）
 
@@ -92,7 +96,17 @@ RAG是检索增强生成：先检索相关资料，再提供给模型。它曾�
 
 ### 一直非核心 但今天仍然有用
 
-这一组是工具使用与集成的基础词汇。知道用途就能帮助你选择和使用工具，不需要先掌握其实现。
+这一组是理解模型用量、设置，以及工具使用与集成的基础词汇。知道用途就能帮助你选择和使用工具，不需要先掌握其实现。
+
+#### Token
+
+Token用于计量模型处理的信息量，常见统计包括输入、输出和推理用量。了解它，可以帮助你读懂上下文容量、用量和费用；不需要先学习分词原理，也不必手工计算每段文字的Token数量。Token消耗更多，本身不代表任务完成得更好。
+
+#### Thinking effort（推理强度）
+
+推理强度控制模型处理任务时的推理投入。一般来说，更高的推理强度，是用更长时间和更多Token消耗，换取小幅的任务交付成功率提升。例外是某些小模型，它们的低、中档几乎无法用于严肃开发。
+
+具体判断涉及模型和任务，后续会在独立的模型选择课程中讲解。这里先采用简单策略：统一选择高档，通常不会出太大的错。
 
 #### CLI
 
@@ -123,6 +137,7 @@ Sandbox是限制执行环境的沙箱；权限机制规定Agent可以访问哪�
 以下资料用于按需查阅，不需要在开始开发前全部读完。官方资料介绍机制与用法，本篇对学习优先级和适用范围的判断，围绕使用AI交付软件展开。
 
 - 模型与Agent：[Building effective agents — Anthropic](https://www.anthropic.com/research/building-effective-agents)。
+- Session：[Run and continue sessions — OpenAI文档](https://developers.openai.com/api/docs/guides/agents-api/sessions)。会话与多轮工作的具体实现参考，不需要先学习API用法。
 - 上下文与Token：[Context windows — Claude文档](https://platform.claude.com/docs/en/build-with-claude/context-windows)。
 - 上下文压缩：[Compaction overview — Claude文档](https://platform.claude.com/docs/en/build-with-claude/compaction)。
 - 上下文组织与按需检索：[Effective context engineering for AI agents — Anthropic](https://www.anthropic.com/research/effective-context-engineering-for-ai-agents)。
@@ -136,6 +151,7 @@ Sandbox是限制执行环境的沙箱；权限机制规定Agent可以访问哪�
 - Subagent：[Create custom subagents — Claude Code文档](https://code.claude.com/docs/en/sub-agents)。
 - RAG：[Introducing Contextual Retrieval — Anthropic](https://www.anthropic.com/research/contextual-retrieval)。用于了解检索机制，不作为项目文档的管理方案。
 - 持久化记忆与指令文件：[How Claude remembers your project — Claude Code文档](https://code.claude.com/docs/en/memory)。
+- 推理强度：[Reasoning models — OpenAI文档](https://developers.openai.com/api/docs/guides/reasoning)。用于了解参数含义，具体选档判断将在模型选择课程中展开。
 - CLI：[About GitHub CLI — GitHub文档](https://docs.github.com/en/github-cli/github-cli/about-github-cli)，一个命令行工具的具体例子。
 - TUI：[Textual官方文档](https://textual.textualize.io/)，可查看终端界面的示例，不需要学习该框架。
 - API与SDK：[Libraries for the REST API — GitHub文档](https://docs.github.com/en/rest/using-the-rest-api/libraries-for-the-rest-api)。
