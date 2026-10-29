@@ -56,6 +56,10 @@ A Plan explains how to implement the current Spec: the approach, steps, dependen
 
 Git is a version control system for recording changes, comparing differences, managing branches, and merging work. It supports review, investigation, and recovery of recorded versions. At minimum, understand repositories, commits, diffs, branches, merges, and conflicts. AI can execute commands; people need to judge which changes belong to the task and which results to retain.
 
+### PR (Pull Request)
+
+A pull request proposes merging a set of changes on a code hosting platform, bringing together branch differences, discussion, reviews, and automated check results. It connects implementation, verification, and merging. Committing code, opening a PR, and completing a merge are different stages. Decide whether to merge based on the Spec, review feedback, and acceptance evidence.
+
 ### Git worktree
 
 Git worktree gives one repository multiple independent working directories with shared version history, allowing tasks to change, run, and verify code separately. It isolates working directories, without eliminating business dependencies or merge conflicts, or isolating shared databases and ports. Parallel development requires both separating tasks and integrating their results.
@@ -145,6 +149,7 @@ Consult these materials as needed; you do not need to finish them before develop
 - Constraints, acceptance, and search space: the preceding article, [AI Capabilities, Limitations, and the Human Role](../limitations/).
 - Specs and Plans: [Specification-Driven Development — GitHub Spec Kit](https://github.com/github/spec-kit/blob/main/spec-driven.md). Reference the conceptual distinctions without adopting the entire workflow.
 - Git: [Pro Git, Chinese edition](https://git-scm.com/book/zh/v2) and [English edition](https://git-scm.com/book/en/v2). Start with “Getting Started,” “Git Basics,” and “Git Branching.” See also the [official git-worktree documentation](https://git-scm.com/docs/git-worktree).
+- PRs: [Pull requests — GitHub documentation](https://docs.github.com/en/pull-requests/reference/pull-requests).
 - Harnesses: [Effective harnesses for long-running agents — Anthropic](https://www.anthropic.com/research/effective-harnesses-for-long-running-agents). A reference for their responsibilities; its workflow is not required by this course.
 - Skills: [Agent Skills Overview — Official documentation](https://agentskills.io/home).
 - MCP: [What is the Model Context Protocol? — Official documentation](https://modelcontextprotocol.io/docs/getting-started/intro).

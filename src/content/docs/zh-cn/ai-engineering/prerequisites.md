@@ -56,6 +56,10 @@ Plan说明怎样完成当前Spec，包括实现方案、步骤、依赖和验证
 
 Git是版本控制系统，用来记录变更、比较差异、管理分支和合并工作，为审查、追踪问题和恢复已记录的版本提供依据。至少要理解仓库、提交（commit）、差异（diff）、分支（branch）、合并（merge）和冲突。命令可以让AI执行，人需要判断哪些变更属于当前任务、哪些结果可以保留。
 
+### PR（Pull Request，拉取请求）
+
+PR是在代码托管平台上提出合并一组变更的请求，集中展示分支差异、讨论、审查和自动检查结果。它把实现、验证和合并连接起来。提交代码、创建PR和完成合并是不同阶段；是否可以合并，应根据Spec、审查意见和验收证据判断。
+
 ### Git worktree
 
 Git worktree让同一仓库拥有多个独立工作目录，共享版本历史，方便不同任务分别修改、运行和验证。它隔离工作目录，不会自动消除业务依赖、合并冲突，也不会隔离共用的数据库和端口。并行开发需要同时考虑任务怎样分开、结果怎样集成。
@@ -145,6 +149,7 @@ Sandbox是限制执行环境的沙箱；权限机制规定Agent可以访问哪�
 - 约束、验收与搜索空间：本教程上一篇[AI的能力限制和人的角色](../limitations/)。
 - Spec与Plan：[Specification-Driven Development — GitHub Spec Kit](https://github.com/github/spec-kit/blob/main/spec-driven.md)。参考概念区分，不需要照搬整套流程。
 - Git：[Pro Git中文版](https://git-scm.com/book/zh/v2)，优先查阅“起步”“Git基础”“Git分支”；[git-worktree官方文档](https://git-scm.com/docs/git-worktree)。
+- PR：[Pull requests — GitHub文档](https://docs.github.com/en/pull-requests/reference/pull-requests)。
 - Harness：[Effective harnesses for long-running agents — Anthropic](https://www.anthropic.com/research/effective-harnesses-for-long-running-agents)。用于了解其职责，文中流程不作为本教程的必学方法。
 - Skill：[Agent Skills Overview — 官方文档](https://agentskills.io/home)。
 - MCP：[What is the Model Context Protocol? — 官方文档](https://modelcontextprotocol.io/docs/getting-started/intro)。
