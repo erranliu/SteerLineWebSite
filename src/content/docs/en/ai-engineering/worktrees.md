@@ -4,7 +4,7 @@ description: "Organize each task around one worktree, one Spec, and one PR to wo
 contentId: "ai-engineering/worktrees"
 translationStatus: current
 updated: "2026-10-30"
-version: "0.2.2"
+version: "0.2.3"
 sidebar:
   order: 8
   label: "8. 1+1+1 (Worktree+Spec+PR): Starting Parallel Development"
@@ -96,13 +96,17 @@ Worktrees isolate file changes. Tasks with dependencies still need an execution 
 
 ### Greatly Reduce the Burden on Your Attention
 
-Without clear task organization, maintaining project state often means repeatedly opening conversations: how far did this session get, which files did that one change, which requirements were implemented, and which results are merely claims of completion? The more conversations you have, the more effort it takes to reconstruct the current state.
+**The main source of this reduction is that changes to the project's accepted state are tied to PR merges.** Work in progress stays in its own worktree and task branch; commits and pushes do not bring it into the main branch. The main branch accepts a task's changes when its PR passes auditing and acceptance and is merged. Project state therefore changes through individual accepted tasks, making the scope and meaning of each change clear.
 
-1+1+1 records that information in the Spec, worktree, and PR. The Spec preserves agreed requirements, the worktree preserves an independent workspace, and the PR brings together the deliverables awaiting acceptance. Your attention goes mainly to agreeing on requirements, intervening when needed, and auditing and accepting the results at a clear point.
+Each new session's discussion, or execution of a Spec, can start from an explicit version of the main branch that has already been checked and accepted. You know what the project currently does and what this task is intended to change. The worktree preserves that clear starting point. Unaccepted changes from other tasks do not appear in it automatically; when updates from the main branch are needed, incorporate and verify them deliberately.
 
-To maintain project state, you can look directly at which tasks are running, which await acceptance, and which have merged. Tasks that have not passed acceptance stay in their original PR for correction; completed tasks are archived. You do not have to follow every operation in every session or repeatedly reconstruct the whole project's progress from chat history.
+Without this approach, multiple sessions continuously editing the same directory or working directly on the main branch can leave the project itself in an unstable intermediate state: partly implemented and not yet verified. Every new conversation or task requires you to first establish which behaviors work, which are unfinished, and which changes belong to other sessions. Reconstructing the current state repeatedly consumes your attention.
 
-**Parallelism lets more tasks advance at once. Clear task organization makes that parallelism manageable. Together, they produce the efficiency gains of 1+1+1.**
+Organizing this work through commits and pushes alone also makes it easy to mix up what the commits contain. One commit may combine several tasks, while one task may span several commits. A push only synchronizes a branch; it does not establish an acceptance point for a complete task. If those changes go directly into the main branch, you have to move between commit history, code diffs, and conversations to work out what the project has actually completed. This makes information harder to obtain and project state harder to maintain.
+
+1+1+1 keeps task requirements in the Spec and brings the task's proposed changes and verification results together in its PR. To maintain project state, you can look directly at which tasks are running, which await acceptance, and which have merged. Your attention goes mainly to agreeing on requirements, intervening when needed, and auditing and accepting changes before they merge. You do not have to follow every operation in every session or repeatedly reconstruct project progress from chat history.
+
+**Parallelism lets more tasks advance at once. Having the main branch change through accepted PRs lets you manage those tasks from states that are easy to understand. Together, they produce the efficiency gains of 1+1+1.**
 
 ## Which Agents Support 1+1+1?
 
