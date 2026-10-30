@@ -58,6 +58,7 @@ export default defineConfig({
               'ai-engineering/cognitive-science/engineering-thinking',
               'ai-engineering/cognitive-science/structural-abstraction',
               'ai-engineering/cognitive-science/generational-knowledge-evolution',
+              'ai-engineering/cognitive-science/problem-representation',
             ],
           },
           {

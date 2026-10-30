@@ -12,7 +12,7 @@ export const learningGroups = [
   {
     id: 'cognitive-science', title: ['AI 和认知科学', 'AI and cognitive science'],
     description: ['理解因果理性、工程思维与结构抽象，思考人与 AI 如何共同解决问题。', 'Explore causal reasoning, engineering thinking, and abstraction to understand how people and AI solve problems.'],
-    items: ['cognitive-science/ai-limitations', 'cognitive-science/causal-rationality', 'cognitive-science/engineering-thinking', 'cognitive-science/structural-abstraction', 'cognitive-science/generational-knowledge-evolution'],
+    items: ['cognitive-science/ai-limitations', 'cognitive-science/causal-rationality', 'cognitive-science/engineering-thinking', 'cognitive-science/structural-abstraction', 'cognitive-science/generational-knowledge-evolution', 'cognitive-science/problem-representation'],
   },
   {
     id: 'outdated-methods', title: ['过期的开发方式', 'Outdated development methods'],

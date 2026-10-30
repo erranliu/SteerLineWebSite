@@ -39,6 +39,7 @@ sidebar:
 3. [Engineering Thinking](./cognitive-science/engineering-thinking/)
 4. [Structural Abstraction](./cognitive-science/structural-abstraction/)
 5. [Knowledge Evolution Across AI Generations](./cognitive-science/generational-knowledge-evolution/)
+6. [Useful Knowledge in the AI Era: Changing Problem Representations](./cognitive-science/problem-representation/)
 
 ## Outdated Development Methods
 

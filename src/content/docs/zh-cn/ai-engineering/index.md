@@ -39,6 +39,7 @@ sidebar:
 3. [工程学思维](./cognitive-science/engineering-thinking/)
 4. [结构抽象](./cognitive-science/structural-abstraction/)
 5. [AI的代际知识演化](./cognitive-science/generational-knowledge-evolution/)
+6. [AI时代有用的知识，要改变问题表征](./cognitive-science/problem-representation/)
 
 ## 过期的开发方式
 
