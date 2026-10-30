@@ -4,7 +4,7 @@ description: "用一个Worktree、一份Spec和一个PR组织每个任务，支�
 contentId: "ai-engineering/worktrees"
 translationStatus: current
 updated: "2026-10-30"
-version: "0.2.3"
+version: "0.2.4"
 sidebar:
   order: 8
   label: "8. 1+1+1(Worktree+Spec+PR)：开始并行开发"
@@ -110,19 +110,38 @@ Worktree隔离的是文件修改。任务之间存在依赖时，仍需要安排
 
 ## 哪些Agent能支撑1+1+1
 
-选择工具时，需要关注Agent及其Harness怎样管理工作区。能让模型执行一条创建Worktree的Git命令，与产品能够持续管理Session和Worktree的关联，是不同层次的能力。
+### 先选择多Session Agent
 
-本节按2026年10月30日可查的官方说明介绍支持情况。工具会继续变化，具体操作应以所用版本为准。
+**1+1+1不适合用单Session Agent组织开发。** 它需要同时推进多个任务，也需要让人方便地查看、切换和管理这些任务。选择工具时，首先要区分单Session Agent和多Session Agent。
 
-**Codex App原生支持Worktree和并行会话。** 它可以为会话创建独立工作区，并从中提交PR。需要注意，Codex可以先以detached HEAD状态开始工作，也就是暂时没有检出到一个具名分支；采用本节流程时，让AI在准备提交PR前建立独立任务分支即可。
+CLI Agent的默认使用方式都是单Session：一次常规启动，围绕一个活动会话工作。你可以多开几个终端，同时运行多个CLI实例，但会话切换、任务归属和工作区关系往往需要自己维护，或者交给额外的管理工具。这会增加注意力负担，难以直接获得本节希望建立的工作方式。
 
-**Claude Code原生支持为Session创建独立Worktree。** 启动时可以使用Worktree模式，让不同任务在各自的目录和分支中工作。
+多Session Agent把多个会话作为产品本身管理的对象。你可以在一个界面中启动不同任务，查看执行状态，切换到需要判断的任务，并在完成后归档。这里选择的是实际使用的产品界面：Codex App与Codex CLI、Claude App的代码开发界面与Claude Code CLI，需要分别看待。
 
-**DeepSeek Harness已有实验性Worktree插件。** 官方仓库提供了创建独立Worktree、建立分支并记录Session工作目录的能力。因此，不能直接将它归为完全不支持Worktree的工具。但实验性插件的存在，也不足以证明完整流程已经稳定；是否适合持续执行长任务，需要结合具体版本验证。它的插件说明还明确保留了离开Worktree后的目录和分支，清理由用户或其他工具负责。
+### 多Session还需要原生Worktree绑定
 
-对于没有原生Worktree管理功能的Agent，仍可以手动创建Worktree，再让Session使用对应目录。但如果工作区信息只靠对话提醒，长任务中的上下文压缩、会话恢复或目录切换，就可能使这种关联丢失，迫使人重新检查和纠正。没有持续维护关联的机制，就难以稳定运行1+1+1。
+**能同时打开多个Session，还不足以稳定运行1+1+1。产品还需要原生维护Worktree与Session的绑定。**
 
-本教程因此推荐优先使用能够原生管理Worktree、持续保持Session关联的Agent。工具应当替你维护这些执行状态，减少每项任务需要人额外照看的部分。Spec与PR的严格绑定，则仍需要在工作流程中落实。
+这种绑定应当由产品持续保存：当前Session对应哪个Worktree、执行时使用哪个目录、恢复会话后回到哪里。能让AI执行创建Worktree的Git命令，与产品原生维护这种关系，是不同层次的能力。
+
+没有原生绑定时，仍可以手动创建Worktree，再让Session使用对应目录。但如果这些关系只靠对话提醒或临时配置，长任务中的上下文压缩、会话恢复或目录切换就可能使关联丢失，迫使人重新检查和纠正。这样很难稳定保持任务边界，也会把状态维护负担重新交给人。
+
+### 当前工具的选择
+
+截至2026年10月30日，结合我们目前了解的产品能力和官方资料，本教程采用以下选型判断：
+
+| 多Session Agent | Worktree与Session的原生绑定支持 |
+| --- | --- |
+| Codex App、Claude App、Cursor、Antigravity、TRAE、Windsurf | 已知具有稳定的原生绑定支持，适合采用1+1+1。 |
+| DeepSeek Harness、ZCode、Kimi Code | 暂不按具有稳定原生绑定支持的工具处理，不作为本教程运行1+1+1的推荐选择。 |
+
+**实验性插件和实验模式，我们没有逐一试验，暂认为无法稳定支持本教程的1+1+1流程。** 例如，DeepSeek Harness已有实验性Worktree插件，Kimi Code也提供实验性的Tower模式；这些能力的存在，不等于本教程已经确认它们能够稳定维护所需的绑定关系。上表是选型判断，不表示这些工具完全没有相关能力。
+
+选择表中支持的工具时，也要进入实际提供该功能的界面，例如Claude App的Code界面、Cursor的Agents Window，以及TRAE提供Worktree功能的桌面端任务界面。工具会继续变化，具体操作以所用版本为准。
+
+使用Codex App时，Worktree可以先以detached HEAD状态开始，也就是暂时没有检出到具名分支。采用本节流程时，让AI在准备提交PR前建立独立任务分支即可。
+
+**本教程建议直接选择具有稳定原生Worktree与Session绑定支持的多Session Agent。** 让产品维护会话、工作区和执行状态，才能同时兑现并行和降低注意力负担这两个收益。Spec与PR的严格绑定，则仍需要在工作流程中落实。
 
 ## 最简单的执行指南
 
@@ -158,6 +177,11 @@ Worktree隔离的是文件修改。任务之间存在依赖时，仍需要安排
 ## 参考资料
 
 - [Worktrees — OpenAI官方文档](https://learn.chatgpt.com/docs/environments/git-worktrees)：Codex的并行会话、工作区关联、detached HEAD及创建任务分支的操作。
-- [Run parallel sessions with worktrees — Claude Code官方文档](https://code.claude.com/docs/en/worktrees)：独立Worktree会话、任务分支、恢复与清理行为。
+- [Desktop application — Claude官方文档](https://code.claude.com/docs/en/desktop)：Claude App代码开发界面的多Session管理和原生Worktree隔离。
+- [Worktrees — Cursor官方文档](https://cursor.com/docs/configuration/worktrees)：Agents Window中的原生Worktree支持。
+- [Projects — Antigravity官方文档](https://antigravity.google/docs/projects)：为会话创建独立Worktree的工作模式。
+- [工作树 — TRAE官方文档](https://docs.trae.cn/work_worktree)：桌面端本地任务的Worktree创建、任务分支和清理。
+- [Worktrees — Windsurf/Cascade官方文档](https://docs.devin.ai/desktop/cascade#worktrees)：为并行会话提供独立Worktree的能力。
 - [Experimental Worktree — DeepSeek Harness官方仓库](https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/experimental/worktree/README.md)：实验性Worktree插件、Session工作目录记录及保留目录和分支的行为。
+- [Tower multi-agent collaboration — Kimi Code官方文档](https://www.kimi.com/code/docs/en/kimi-code-cli/guides/tower.html)：需要显式启用的实验性Worktree协作模式。
 - [git-worktree — Git官方文档](https://git-scm.com/docs/git-worktree)：多个工作目录共享仓库的机制。

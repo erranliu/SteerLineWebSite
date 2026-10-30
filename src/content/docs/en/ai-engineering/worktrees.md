@@ -4,7 +4,7 @@ description: "Organize each task around one worktree, one Spec, and one PR to wo
 contentId: "ai-engineering/worktrees"
 translationStatus: current
 updated: "2026-10-30"
-version: "0.2.3"
+version: "0.2.4"
 sidebar:
   order: 8
   label: "8. 1+1+1 (Worktree+Spec+PR): Starting Parallel Development"
@@ -110,19 +110,38 @@ Organizing this work through commits and pushes alone also makes it easy to mix 
 
 ## Which Agents Support 1+1+1?
 
-When choosing a tool, consider how the agent and its harness manage workspaces. Having a model run a Git command to create a worktree is different from having a product continuously maintain the relationship between a session and its worktree.
+### Choose a Multi-Session Agent First
 
-This section describes support based on official documentation available on October 30, 2026. Tools will continue to change; use the instructions for your installed version.
+**Single-session agents are not a good fit for organizing 1+1+1 development.** The workflow needs several tasks to advance at once, with an easy way for you to inspect, switch between, and manage them. Start by distinguishing single-session agents from multi-session agents.
 
-**The Codex app natively supports worktrees and parallel sessions.** It can create a separate workspace for a session and open a PR from there. Codex can initially work in a detached HEAD state, meaning no named branch is checked out yet. For this workflow, ask AI to create a separate task branch before preparing the PR.
+CLI agents default to single-session interaction: a normal invocation centers on one active conversation. You can open several terminals and run multiple CLI instances, but switching sessions, tracking task ownership, and maintaining workspace associations often fall to you or an additional management tool. This increases the attention required and does not directly provide the workflow this lesson aims to establish.
 
-**Claude Code natively supports creating separate worktrees for sessions.** You can start in worktree mode so different tasks work in their own directories and branches.
+Multi-session agents manage multiple conversations as part of the product itself. You can start different tasks in one interface, inspect their execution state, switch to the task that needs your judgment, and archive it when finished. Evaluate the product interface you actually use: the Codex app and Codex CLI, or the Claude app's coding interface and Claude Code CLI, need to be considered separately.
 
-**DeepSeek Harness already has an experimental worktree plugin.** Its official repository provides the ability to create an isolated worktree and branch and record the session's working directory. It therefore cannot be classified as having no worktree support. However, an experimental plugin does not establish that the full workflow is stable. Suitability for long tasks needs to be checked against the specific version. The plugin documentation also states that leaving a worktree retains its directory and branch; the user or another tool is responsible for cleanup.
+### Multiple Sessions Also Need Native Worktree Binding
 
-For agents without native worktree management, you can still create a worktree manually and point a session at its directory. But if workspace information is maintained only through conversational reminders, context compaction, session recovery, or directory changes during a long task may break that association, forcing you to check and correct it. Without a mechanism to maintain the association, running 1+1+1 reliably becomes difficult.
+**Opening several sessions is not enough to run 1+1+1 reliably. The product also needs to maintain a native binding between each session and its worktree.**
 
-This course therefore recommends agents that natively manage worktrees and preserve their session associations. The tool should maintain this execution state for you, reducing the extra supervision each task requires. Strict binding to the Spec and PR still needs to be established through your workflow.
+The product should preserve which worktree belongs to the session, which directory execution uses, and where a resumed session returns. Having AI run a Git command to create a worktree is different from having the product maintain that association natively.
+
+Without native binding, you can still create a worktree manually and point a session at its directory. But if the association depends on conversational reminders or temporary configuration, context compaction, session recovery, or directory changes during a long task may break it, forcing you to check and correct it. This makes task boundaries hard to maintain reliably and puts state management back on you.
+
+### Current Tool Choices
+
+As of October 30, 2026, based on our current understanding of these products and their official documentation, this course uses the following assessment:
+
+| Multi-session agent | Native worktree–session binding |
+| --- | --- |
+| Codex App, Claude App, Cursor, Antigravity, TRAE, Windsurf | Known to provide stable native binding; suitable for 1+1+1. |
+| DeepSeek Harness, ZCode, Kimi Code | Not currently treated as providing stable native binding; not recommended for running this course's 1+1+1 workflow. |
+
+**We have not tested experimental plugins and modes individually, so for now we treat them as unable to support this course's 1+1+1 workflow reliably.** For example, DeepSeek Harness has an experimental worktree plugin, and Kimi Code offers the experimental Tower mode. Their existence does not mean this course has confirmed that they reliably maintain the binding we require. The table is a tool-selection assessment, not a claim that these products have no related capabilities.
+
+For tools in the supported group, use the interface that actually provides the feature: for example, the Claude app's Code interface, Cursor's Agents Window, or the TRAE desktop task interface with worktree support. Tools will continue to change; follow the instructions for your installed version.
+
+The Codex app can initially work in a detached HEAD state, meaning no named branch is checked out yet. For this workflow, ask AI to create a separate task branch before preparing the PR.
+
+**This course recommends choosing a multi-session agent with stable native worktree–session binding directly.** Let the product maintain sessions, workspaces, and execution state so you can gain both parallelism and reduced attention overhead. Strict binding to the Spec and PR still needs to be established through your workflow.
 
 ## The Simplest Execution Guide
 
@@ -158,6 +177,11 @@ The getting-started stage establishes sound development practices and basic conc
 ## References
 
 - [Worktrees — Official OpenAI documentation](https://learn.chatgpt.com/docs/environments/git-worktrees): parallel sessions, workspace associations, detached HEAD, and creating task branches in Codex.
-- [Run parallel sessions with worktrees — Official Claude Code documentation](https://code.claude.com/docs/en/worktrees): separate worktree sessions, task branches, recovery, and cleanup behavior.
+- [Desktop application — Official Claude documentation](https://code.claude.com/docs/en/desktop): multi-session management and native worktree isolation in the Claude app's coding interface.
+- [Worktrees — Official Cursor documentation](https://cursor.com/docs/configuration/worktrees): native worktree support in the Agents Window.
+- [Projects — Official Antigravity documentation](https://antigravity.google/docs/projects): creating a separate worktree for a conversation.
+- [Worktrees — Official TRAE documentation (Chinese)](https://docs.trae.cn/work_worktree): worktree creation, task branches, and cleanup for local desktop tasks.
+- [Worktrees — Official Windsurf/Cascade documentation](https://docs.devin.ai/desktop/cascade#worktrees): separate worktrees for parallel conversations.
 - [Experimental Worktree — Official DeepSeek Harness repository](https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/experimental/worktree/README.md): the experimental worktree plugin, session working-directory records, and retained directories and branches.
+- [Tower multi-agent collaboration — Official Kimi Code documentation](https://www.kimi.com/code/docs/en/kimi-code-cli/guides/tower.html): the experimental worktree collaboration mode that requires explicit activation.
 - [git-worktree — Official Git documentation](https://git-scm.com/docs/git-worktree): how multiple working directories share a repository.
