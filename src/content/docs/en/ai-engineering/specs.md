@@ -4,7 +4,7 @@ description: "Understand the shift from conversational development to Spec-drive
 contentId: "ai-engineering/specs"
 translationStatus: current
 updated: "2026-10-30"
-version: "0.2.0"
+version: "0.2.1"
 sidebar:
   order: 6
   label: "6. Spec-Driven Development"
@@ -58,13 +58,11 @@ Finally, conversational development often leaves the definition of completion un
 
 Spec-driven development establishes acceptance criteria during requirements definition, then checks actual results against them. Working code and an AI declaration of completion cannot replace this process. Requirements, implementation, and acceptance have a common reference.
 
-These changes show that **Spec-driven development changes the foundation on which the entire development process depends.**
+**Conversational development cannot reliably support long tasks with complex requirements.** A long task requires multiple requirements and their relationships to remain intact throughout execution, while conversational development repeatedly reconstructs that basis from changing context. As work continues, earlier requirements become easier to omit or distort, and subsequent work can treat those deviations as established facts. Repeated local corrections cannot ensure that the task as a whole continues to satisfy all its requirements.
 
-In conversational development, the basis for execution takes shape and changes throughout the exchange. Progress depends heavily on the current context and timely human clarification and correction. Spec-driven development preserves established requirements so they can be repeatedly referenced, checked, revised, and traced.
+**Spec-driven development changes the foundation on which the entire development process depends.** It preserves established requirements so that different stages of a long task can return to the same reference, allowing requirements and their changes to be repeatedly referenced, checked, and traced.
 
 The document itself does not guarantee correct execution, but it provides an explicit reference for identifying deviations. You can check which requirement the implementation has departed from, which requirements change has not yet been implemented, and which results remain unverified. Requirements, process, and results can begin to be connected.
-
-As development grows more complex, you need to build further decisions, arrangements, and execution on what has already been established. If earlier requirements continue to drift with the conversation, subsequent work inherits that uncertainty. The greater the complexity, the harder it becomes to control the spread of deviations.
 
 **Any advanced engineering method needs an explicit, persistently available, and checkable basis for development to work reliably. Spec-driven development establishes that foundation.** Without it, adding tools, steps, or time cannot resolve uncertainty in the development goal itself.
 
@@ -88,21 +86,9 @@ First express the goal, clarify requirements with the AI, and organize the estab
 
 A Spec can include background and goals, scope, behavior and boundaries, and acceptance criteria. Its structure can vary; what matters is whether it supports execution and evaluation of the task. Keep the Spec in the project, manage it through Git, and reflect requirements changes in the document.
 
-Generating a Spec, however, does not mean it can already guide development effectively. Three failure modes are especially common.
+A Spec can still fail: when requirements have not been clarified, the AI can produce an executable Spec that misses the real goal; excessive scope makes execution and acceptance difficult to manage; overly narrow scope can lose the overall goal and its relationships. Size here refers to requirements scope and organization, rather than word count.
 
-**First, the requirements have not been clarified.** Even when goals, boundaries, and key trade-offs remain unresolved, the AI can produce a seemingly complete, executable Spec. To keep the task moving, it fills in the missing decisions itself.
-
-Subsequent development may follow that Spec precisely and still deliver something you do not need. An executable Spec does not mean the requirements have been established. Whether the real problem and key choices have been properly discussed determines whether the document can provide an effective basis for development.
-
-**Second, the Spec is too large.** A single Spec can contain too many goals and interacting requirements to remain clear. Execution struggles to account for everything at once, acceptance becomes difficult to focus, and a local requirements change can affect the whole task. Putting everything into one document does not automatically remove that complexity.
-
-**Third, the Spec is too small.** Requirements can be fragmented so far that each Spec contains only a local action, losing the overall goal and necessary relationships. Even if every Spec is completed, the results may fail to form the intended whole, while communication and maintenance costs increase.
-
-Too large and too small refer primarily to requirements scope and organization, rather than document length. A long Spec can still serve one clear goal, while a short Spec can vaguely combine many different problems.
-
-These problems mean that **adopting Spec-driven development is only the beginning.** Deciding what one Spec should cover, how to express requirements and preserve necessary relationships, and how to keep it useful for execution and acceptance are advanced questions that require continued improvement through practice.
-
-Spec-driven development provides a foundation for that improvement. You can examine specific requirements and results to identify weaknesses in how a Spec was organized and determine which changes improve development. Lessons from one task can then carry into the next.
+**Adopting Spec-driven development is only the beginning.** Organizing scope, expressing requirements, and keeping a Spec useful for execution and acceptance are advanced questions that require continued improvement through practice. Spec-driven development provides an explicit reference for those improvements, allowing lessons from one task to carry into the next.
 
 Our judgment remains clear: **when the goal is serious software delivery, an AI development workflow in which conversation directly drives implementation through repeated clarification and correction can be considered incorrect and inefficient. Continuing with that workflow, however much time you invest, produces almost no meaningful accumulation of development capability.**
 
