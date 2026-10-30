@@ -4,7 +4,7 @@ description: "Understand repositories and branches, start using Git with GitHub,
 contentId: "ai-engineering/git"
 translationStatus: current
 updated: "2026-10-30"
-version: "0.1.3"
+version: "0.1.4"
 sidebar:
   order: 6
   label: "6. Git"
@@ -86,7 +86,7 @@ A push updates the specified remote branch. The minimal workflow in this lesson 
 
 ### Start by completing the simplest workflow
 
-**The sequence below—create a repository, clone it, make a change, commit, and push—is the simplest workflow for getting familiar with Git. In actual project work, we use worktrees and PRs to organize development. Lesson 07 covers that workflow.** This first exercise helps you understand local versus remote content and file edits versus recorded versions.
+**The sequence below—create a repository, clone it, make a change, commit, and push—is the simplest workflow for getting familiar with Git. In actual project work, we use worktrees and PRs to organize development. Lesson 08 covers that workflow.** This first exercise helps you understand local versus remote content and file edits versus recorded versions.
 
 Today's mainstream AI development agents can reliably understand and perform the Git operations used here. **The prompts below are examples. Express your intention directly; you do not need to copy them word for word.** Leave the commands, parameters, and necessary checks to AI.
 
@@ -132,7 +132,7 @@ Next, tell AI:
 
 After a successful push, refresh the repository page on GitHub. You should see the updated README and the new commit in its history. You have now completed the full sequence of creating a remote repository, editing locally, recording a version, and sending it back to the remote.
 
-These two prompts separate committing and pushing so you can understand each operation. Once you are familiar with them, you can simply say, "Commit and push." Later, when using the worktree and PR workflow, AI will usually handle the necessary commits and pushes while completing the task and preparing its PR. You do not need to direct every operation manually. Lesson 07 explains this in detail.
+These two prompts separate committing and pushing so you can understand each operation. Once you are familiar with them, you can simply say, "Commit and push." Later, when using the worktree and PR workflow, AI will usually handle the necessary commits and pushes while completing the task and preparing its PR. You do not need to direct every operation manually. Lesson 08 explains this in detail.
 
 ## 3. Why AI development needs parallel work, recovery, and acceptance checkpoints
 
@@ -198,7 +198,7 @@ A PR makes a task's result something that can be inspected and updated over time
 
 This lets people concentrate on key judgments: whether the scope is appropriate, requirements are clear, verification covers important behavior, and identified problems have been resolved. AI can take on more of the detailed difference analysis, repeated checking, and correction. This is useful even when one person organizes development.
 
-GitHub can also connect automated checks, such as builds and tests, to PRs. Results correspond to actual versions and help reveal deviations promptly. For now, understand how PRs bring changes and checks together. Lesson 07 covers creating, updating, and merging PRs alongside worktrees.
+GitHub can also connect automated checks, such as builds and tests, to PRs. Results correspond to actual versions and help reveal deviations promptly. For now, understand how PRs bring changes and checks together. Lesson 08 covers creating, updating, and merging PRs alongside worktrees.
 
 ### A successful merge still needs integration verification
 
@@ -210,7 +210,7 @@ Checks passing on each task's branch and worktree therefore cannot replace verif
 
 If you are starting from scratch, do not expect to master Git completely in one lesson. **Understand repositories and branches first, then have AI help you complete the simplest sequence: create a GitHub repository, clone it, make a change, commit, and push. Start using it as soon as possible.** Explore advanced features as development progresses. Real problems will help you understand why those capabilities matter.
 
-This lesson's minimal workflow is for getting familiar with Git. In actual project work, we organize development with worktrees and PRs. The next lesson explains how Specs define what to implement and which constraints to maintain. Lesson 07 brings worktrees, Specs, and Plans together and covers the actual development workflow, including PRs.
+This lesson's minimal workflow is for getting familiar with Git. In actual project work, we organize development with worktrees and PRs. The next lesson explains how Specs define what to implement and which constraints to maintain. Lesson 08 brings worktrees, Specs, and PRs together to explain the 1+1+1 development workflow.
 
 ## References
 

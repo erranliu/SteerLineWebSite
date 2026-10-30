@@ -17,7 +17,7 @@ sidebar:
 5. [Outdated AI Knowledge and Once-Popular Misconceptions](./outdated-knowledge/)
 6. [Git](./git/)
 7. [Spec-Driven Development](./specs/)
-8. [1+1+1 (Worktree+Spec+Plan) Development: Starting Parallel Work](./worktrees/)
+8. [1+1+1: Parallel Development with Less Attention Overhead](./worktrees/)
 
 ## Advanced
 
