@@ -3,7 +3,7 @@ title: "Why You Need a Serious Guide to AI Software Project Development"
 description: "For developers aiming to deliver small and midsize commercial software projects or larger ones: why AI development requires systematic learning, and how to build engineering skills as methods change."
 contentId: "ai-engineering/why-serious-ai-development"
 translationStatus: current
-updated: "2026-10-28"
+updated: "2026-10-30"
 version: "0.1.2"
 sidebar:
   order: 1
@@ -12,7 +12,7 @@ sidebar:
 
 With AI development tools, everyone suddenly seems capable of anything.
 
-Describe an idea, and AI generates code, builds pages, and fixes its own errors. Something that once required a long period of learning can now become a working application after a short conversation. It is easy to conclude that, as long as AI is smart enough, software development is simply a matter of telling it your requirements step by step.
+Describe an idea, and AI generates code, builds pages, and fixes its own errors. Something that once required a long period of learning can now become a working application after a short conversation. It is easy to conclude that, as long as AI is smart enough, software development simply consists of telling it your requirements step by step.
 
 As of October 2026, I have yet to see a traditionally large software system, or a midsize commercial application, that can be developed this way.
 Organizing AI to complete a commercial software project that can be reliably delivered and maintained requires completely different skills.
