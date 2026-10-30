@@ -34,8 +34,8 @@ export default defineConfig({
             ],
           },
           {
-            label: 'Advanced',
-            translations: { 'zh-CN': '进阶阶段' },
+            label: 'Advanced (Update pending)',
+            translations: { 'zh-CN': '进阶阶段（待更新）' },
             items: [
               'ai-engineering/effective-information-and-spec-quality',
               'ai-engineering/testing-and-acceptance',
@@ -50,8 +50,8 @@ export default defineConfig({
             ],
           },
           {
-            label: 'AI and Cognitive Science',
-            translations: { 'zh-CN': 'AI和认知科学' },
+            label: 'AI and Cognitive Science (Update pending)',
+            translations: { 'zh-CN': 'AI和认知科学（待更新）' },
             items: [
               'ai-engineering/cognitive-science/ai-limitations',
               'ai-engineering/cognitive-science/causal-rationality',
@@ -59,19 +59,6 @@ export default defineConfig({
               'ai-engineering/cognitive-science/structural-abstraction',
               'ai-engineering/cognitive-science/generational-knowledge-evolution',
               'ai-engineering/cognitive-science/problem-representation',
-            ],
-          },
-          {
-            label: 'Outdated Development Methods',
-            translations: { 'zh-CN': '过期的开发方式' },
-            items: [
-              'ai-engineering/outdated-methods/session-handoff',
-              'ai-engineering/outdated-methods/superpowers',
-              'ai-engineering/outdated-methods/agent-team',
-              'ai-engineering/outdated-methods/code-repo',
-              'ai-engineering/outdated-methods/role-assignment',
-              'ai-engineering/outdated-methods/prompting-techniques',
-              'ai-engineering/outdated-methods/agents-md',
             ],
           },
         ],

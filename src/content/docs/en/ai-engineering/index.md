@@ -19,7 +19,7 @@ sidebar:
 7. [Spec-Driven Development](./specs/)
 8. [1+1+1 (Worktree+Spec+PR): Starting Parallel Development](./worktrees/)
 
-## Advanced
+## Advanced (Update pending)
 
 1. [Effective Information and the Quality Threshold for Specs](./effective-information-and-spec-quality/)
 2. [Testing and Acceptance](./testing-and-acceptance/)
@@ -32,7 +32,7 @@ sidebar:
 9. [Soft and Hard Workflows](./soft-and-hard-workflows/)
 10. [Pursuing Convergence Rather Than Correctness or Optimality](./pursuing-convergence/)
 
-## AI and Cognitive Science
+## AI and Cognitive Science (Update pending)
 
 1. [AI Capabilities and Limitations](./cognitive-science/ai-limitations/)
 2. [Causal Rationality](./cognitive-science/causal-rationality/)
@@ -40,13 +40,3 @@ sidebar:
 4. [Structural Abstraction](./cognitive-science/structural-abstraction/)
 5. [Knowledge Evolution Across AI Generations](./cognitive-science/generational-knowledge-evolution/)
 6. [Useful Knowledge in the AI Era: Changing Problem Representations](./cognitive-science/problem-representation/)
-
-## Outdated Development Methods
-
-1. [session handoff](./outdated-methods/session-handoff/)
-2. [superpowers](./outdated-methods/superpowers/)
-3. [agent team](./outdated-methods/agent-team/)
-4. [code repo](./outdated-methods/code-repo/)
-5. [Role Assignment](./outdated-methods/role-assignment/)
-6. [Prompting Techniques](./outdated-methods/prompting-techniques/)
-7. [agents.md](./outdated-methods/agents-md/)

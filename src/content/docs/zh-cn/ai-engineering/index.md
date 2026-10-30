@@ -19,7 +19,7 @@ sidebar:
 7. [Spec驱动开发](./specs/)
 8. [1+1+1(Worktree+Spec+PR)：开始并行开发](./worktrees/)
 
-## 进阶阶段
+## 进阶阶段（待更新）
 
 1. [有效信息和Spec的合格门槛](./effective-information-and-spec-quality/)
 2. [测试和验收](./testing-and-acceptance/)
@@ -32,7 +32,7 @@ sidebar:
 9. [软流程和硬流程](./soft-and-hard-workflows/)
 10. [追求收敛，而不是正确或最优](./pursuing-convergence/)
 
-## AI和认知科学
+## AI和认知科学（待更新）
 
 1. [AI的能力限制](./cognitive-science/ai-limitations/)
 2. [因果理性](./cognitive-science/causal-rationality/)
@@ -40,13 +40,3 @@ sidebar:
 4. [结构抽象](./cognitive-science/structural-abstraction/)
 5. [AI的代际知识演化](./cognitive-science/generational-knowledge-evolution/)
 6. [AI时代有用的知识，要改变问题表征](./cognitive-science/problem-representation/)
-
-## 过期的开发方式
-
-1. [session handoff](./outdated-methods/session-handoff/)
-2. [superpowers](./outdated-methods/superpowers/)
-3. [agent team](./outdated-methods/agent-team/)
-4. [code repo](./outdated-methods/code-repo/)
-5. [角色指定](./outdated-methods/role-assignment/)
-6. [提示词技巧](./outdated-methods/prompting-techniques/)
-7. [agents.md](./outdated-methods/agents-md/)
