@@ -1,13 +1,13 @@
 ---
-title: "1+1+1: Parallel Development with Less Attention Overhead"
+title: "1+1+1 (Worktree+Spec+PR): Starting Parallel Development"
 description: "Organize each task around one worktree, one Spec, and one PR to work in parallel with less attention spent tracking project state."
 contentId: "ai-engineering/worktrees"
 translationStatus: current
 updated: "2026-10-30"
-version: "0.2.1"
+version: "0.2.2"
 sidebar:
   order: 8
-  label: "8. 1+1+1: Parallel Development with Less Attention Overhead"
+  label: "8. 1+1+1 (Worktree+Spec+PR): Starting Parallel Development"
 ---
 
 The previous lesson introduced Spec-driven development. A Spec preserves agreed requirements so AI can keep working on long tasks and you can check the results against clear expectations. With that foundation in place, the most direct way to improve efficiency is to open multiple sessions and advance several tasks in parallel.

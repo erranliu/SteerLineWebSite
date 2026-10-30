@@ -1,13 +1,13 @@
 ---
-title: "1+1+1：开始并行开发，降低注意力负担"
+title: "1+1+1(Worktree+Spec+PR)：开始并行开发"
 description: "用一个Worktree、一份Spec和一个PR组织每个任务，支持并行开发，大幅降低维护项目状态所需的注意力。"
 contentId: "ai-engineering/worktrees"
 translationStatus: current
 updated: "2026-10-30"
-version: "0.2.1"
+version: "0.2.2"
 sidebar:
   order: 8
-  label: "8. 1+1+1：开始并行开发，降低注意力负担"
+  label: "8. 1+1+1(Worktree+Spec+PR)：开始并行开发"
 ---
 
 上一节介绍了Spec驱动开发。Spec把已经确定的需求保存下来，让AI能够持续执行长任务，也让人能够对照明确的要求验收结果。有了这个基础，想继续提升效率，最直接的途径，就是开多个Session，并行推进多个任务。

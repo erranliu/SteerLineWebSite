@@ -17,7 +17,7 @@ sidebar:
 5. [已经过期和流行过的错误的AI知识](./outdated-knowledge/)
 6. [Git](./git/)
 7. [Spec驱动开发](./specs/)
-8. [1+1+1：开始并行开发，降低注意力负担](./worktrees/)
+8. [1+1+1(Worktree+Spec+PR)：开始并行开发](./worktrees/)
 
 ## 进阶阶段
 
