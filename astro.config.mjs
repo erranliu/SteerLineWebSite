@@ -24,6 +24,7 @@ export default defineConfig({
             translations: { 'zh-CN': '入门阶段' },
             items: [
               'ai-engineering/why-serious-ai-development',
+              'ai-engineering/demo-and-commercial-delivery',
               'ai-engineering/limitations',
               'ai-engineering/prerequisites',
               'ai-engineering/outdated-knowledge',

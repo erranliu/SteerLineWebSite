@@ -3,11 +3,11 @@ title: "Outdated AI Knowledge and Once-Popular Misconceptions"
 description: "How changes in models, tools, and development practices have displaced prompting tricks, role-based agent teams, Session Handoff, workflow and keyword-triggered skills, AGENTS.md, and Vibe Coding."
 contentId: "ai-engineering/outdated-knowledge"
 translationStatus: current
-updated: "2026-10-29"
+updated: "2026-10-30"
 version: "0.1.11"
 sidebar:
-  order: 4
-  label: "4. Outdated AI Knowledge and Once-Popular Misconceptions"
+  order: 5
+  label: "5. Outdated AI Knowledge and Once-Popular Misconceptions"
 ---
 
 Some AI development knowledge no longer deserves substantial investment. Some once-popular ideas should be abandoned altogether. "Outdated" means an approach was useful but has lost its importance. A "misconception" is a mistaken understanding that fails to solve the problem or obstructs development.
@@ -96,7 +96,7 @@ Effective interaction should aim for precise, efficient information transfer: or
 
 Early industry thinking about AI often rested on two assumptions: **AI works like a person, and AI can absorb and understand unlimited information.** Human job structures and chat-based collaboration were imposed directly on AI, while roles, rules, and workflows accumulated as though more instructions would always produce better results.
 
-People gradually came to understand the limitations discussed in the second article, "AI Capabilities, Limitations, and the Human Role": AI has intelligence, but differs substantially from people. [10] **Every requirement, workflow, and constraint has a cost**, consuming model attention and adding execution and maintenance costs. Most problems discussed here arose as these two false assumptions misled the industry at different stages, preventing a sound balance between prompt burden and output or a proper approach to context maintenance.
+People gradually came to understand the limitations discussed in the third article, "AI Capabilities, Limitations, and the Human Role": AI has intelligence, but differs substantially from people. [10] **Every requirement, workflow, and constraint has a cost**, consuming model attention and adding execution and maintenance costs. Most problems discussed here arose as these two false assumptions misled the industry at different stages, preventing a sound balance between prompt burden and output or a proper approach to context maintenance.
 
 This was not a problem confined to a few developers. OpenAI launched the GPT Store to distribute custom GPTs. [8] Treating role packaging within it as professional capability is the same mistake. Connecting knowledge and tools supplies additional information and execution capabilities. [9] Anthropic also made context resets and handoffs central to its harness design, organizing development around a relay between sessions. [4][5] That approach is outdated: project documents and state records should preserve important information, and session contents should be disposable. Major providers take wrong turns too. Old guidance does not become today's best practice merely because it remains on an official website.
 
@@ -115,4 +115,4 @@ This article aims to help you avoid known pitfalls and understand the reasoning 
 7. [AGENTS.md official documentation](https://agents.md/). The purpose and organization of instruction files.
 8. [Introducing the GPT Store — OpenAI](https://openai.com/index/introducing-the-gpt-store/). January 10, 2024. The original GPT Store launch announcement.
 9. [Introducing GPTs — OpenAI](https://openai.com/index/introducing-gpts/). November 6, 2023. The original description of custom GPTs combining instructions, knowledge, and tools.
-10. [AI Capabilities, Limitations, and the Human Role — Article 2 of this course](../limitations/). Limitations in generation, constraint maintenance, and modality, and the human role in development.
+10. [AI Capabilities, Limitations, and the Human Role — Article 3 of this course](../limitations/). Limitations in generation, constraint maintenance, and modality, and the human role in development.

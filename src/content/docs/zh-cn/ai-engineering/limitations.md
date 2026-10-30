@@ -6,8 +6,8 @@ translationStatus: current
 updated: "2026-10-28"
 version: "0.1.0"
 sidebar:
-  order: 2
-  label: "2. AI的能力限制和人的角色"
+  order: 3
+  label: "3. AI的能力限制和人的角色"
 ---
 
 AI已经能完成大量复杂的开发工作。它可以理解代码、设计方案、实现功能、编写测试，也能使用工具连续工作。但要开发并长期维护中小型及以上的商业软件，人仍然无法退出开发过程。

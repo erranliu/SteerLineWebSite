@@ -6,8 +6,8 @@ translationStatus: current
 updated: "2026-10-30"
 version: "0.1.3"
 sidebar:
-  order: 5
-  label: "5. Git"
+  order: 6
+  label: "6. Git"
 ---
 
 This lesson begins our discussion of concrete development methods. Earlier lessons explained that AI can do a great deal of implementation work, but keeping a project consistent requires people to organize requirements, tasks, information, and verification. Git is one of the first foundations to put in place.

@@ -6,8 +6,8 @@ translationStatus: current
 updated: "2026-10-29"
 version: "0.1.6"
 sidebar:
-  order: 3
-  label: "3. An Index of Useful Prerequisite Knowledge"
+  order: 4
+  label: "4. An Index of Useful Prerequisite Knowledge"
 ---
 
 Developing software with AI requires a few basic concepts. This article gives you the minimum introduction needed to follow the rest of the course and know what to look up when a problem arises.

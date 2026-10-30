@@ -3,7 +3,7 @@ title: "学习 AI 开发"
 description: "从理解 AI 的边界，到组织真实的软件项目，建立自己的开发方法。"
 contentId: "ai-engineering/index"
 translationStatus: current
-updated: "2026-10-29"
+updated: "2026-10-30"
 sidebar:
   order: 0
 ---
@@ -11,12 +11,13 @@ sidebar:
 ## 入门阶段
 
 1. [为什么你需要严肃的AI软件项目开发教程](./why-serious-ai-development/)
-2. [AI的能力限制和人的角色](./limitations/)
-3. [当前有用的前置知识索引](./prerequisites/)
-4. [已经过期和流行过的错误的AI知识](./outdated-knowledge/)
-5. [Git](./git/)
-6. [Spec驱动开发](./specs/)
-7. [1+1+1(Worktree+Spec+Plan)开发，开始并行](./worktrees/)
+2. [Demo和商业交付的区别](./demo-and-commercial-delivery/)
+3. [AI的能力限制和人的角色](./limitations/)
+4. [当前有用的前置知识索引](./prerequisites/)
+5. [已经过期和流行过的错误的AI知识](./outdated-knowledge/)
+6. [Git](./git/)
+7. [Spec驱动开发](./specs/)
+8. [1+1+1(Worktree+Spec+Plan)开发，开始并行](./worktrees/)
 
 ## 进阶阶段
 

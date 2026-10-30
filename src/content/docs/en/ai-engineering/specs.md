@@ -6,8 +6,8 @@ translationStatus: current
 updated: "2026-10-30"
 version: "0.2.2"
 sidebar:
-  order: 6
-  label: "6. Spec-Driven Development"
+  order: 7
+  label: "7. Spec-Driven Development"
 ---
 
 We consider Spec-driven development the single most important concept in moving into serious AI development. It is a necessary change in development paradigm. That is why this tutorial introduces it immediately after Git.

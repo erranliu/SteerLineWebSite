@@ -6,8 +6,8 @@ translationStatus: current
 updated: "2026-10-29"
 version: "0.1.6"
 sidebar:
-  order: 3
-  label: "3. 当前有用的前置知识索引"
+  order: 4
+  label: "4. 当前有用的前置知识索引"
 ---
 
 用AI开发软件，需要理解一些基本概念。这篇提供最小介绍，让你读懂后续教程，知道遇到问题时应该查什么。

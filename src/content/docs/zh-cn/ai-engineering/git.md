@@ -6,8 +6,8 @@ translationStatus: current
 updated: "2026-10-30"
 version: "0.1.3"
 sidebar:
-  order: 5
-  label: "5. Git"
+  order: 6
+  label: "6. Git"
 ---
 
 从这一篇开始，我们进入具体的开发方法。前面已经讲过，AI能够完成大量实现工作，但项目要持续保持一致，需要人组织需求、任务、信息和验证。Git是建立这套开发方式时，最先应该准备好的基础环境。

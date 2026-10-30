@@ -6,8 +6,8 @@ translationStatus: current
 updated: "2026-10-30"
 version: "0.2.2"
 sidebar:
-  order: 6
-  label: "6. Spec驱动开发"
+  order: 7
+  label: "7. Spec驱动开发"
 ---
 
 我们认为，Spec驱动是进入严肃AI开发最重要的单一概念，也是必须完成的一次开发范式切换。因此，本教程在Git之后，直接进入Spec驱动。

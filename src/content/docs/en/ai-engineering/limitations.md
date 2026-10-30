@@ -6,8 +6,8 @@ translationStatus: current
 updated: "2026-10-28"
 version: "0.1.0"
 sidebar:
-  order: 2
-  label: "2. AI Capabilities, Limitations, and the Human Role"
+  order: 3
+  label: "3. AI Capabilities, Limitations, and the Human Role"
 ---
 
 AI can already handle a great deal of complex development work. It can understand code, design solutions, implement features, write tests, and use tools to work continuously. But people are still needed throughout the development and long-term maintenance of small, midsize, and larger commercial software projects.

@@ -2,7 +2,7 @@ export const learningGroups = [
   {
     id: 'getting-started', title: ['入门阶段', 'Getting started'],
     description: ['从理解 AI 的边界开始，建立清晰的规格、版本管理与并行开发方法。', 'Understand the limits of AI, then build a foundation in specifications, version control, and parallel work.'],
-    items: ['why-serious-ai-development', 'limitations', 'prerequisites', 'outdated-knowledge', 'git', 'specs', 'worktrees'],
+    items: ['why-serious-ai-development', 'demo-and-commercial-delivery', 'limitations', 'prerequisites', 'outdated-knowledge', 'git', 'specs', 'worktrees'],
   },
   {
     id: 'advanced', title: ['进阶阶段', 'Going further'],
