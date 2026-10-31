@@ -6,14 +6,19 @@ const zh = locale === 'zh-cn';
 const lang = zh ? 'zh-cn' : 'en';
 const section = entry.data.contentId?.split('/')[0] ?? 'docs';
 const isColumn = section === 'articles';
-const List = isColumn ? 'ul' : 'ol';
-const docs = (await getCollection('docs')).filter((doc) => doc.id.startsWith(`${lang}/`) && doc.data.contentId.startsWith(`${section}/`)).sort((a, b) => (a.data.sidebar?.order ?? 0) - (b.data.sidebar?.order ?? 0));
-const label = isColumn ? (zh ? '专栏文章' : 'Articles') : section === 'ai-engineering' ? (zh ? '学习 AI 开发' : 'Learn AI Development') : section === 'steerline' ? (zh ? '学习 SteerLine' : 'Learn SteerLine') : section === 'docs' ? (zh ? '文档' : 'Documentation') : entry.data.title;
-const groups = section === 'ai-engineering' ? learningGroups.map((group) => ({ title: group.title[zh ? 0 : 1], articles: group.items.map((slug) => docs.find((doc) => doc.data.contentId === `ai-engineering/${slug}`)).filter((doc) => !!doc) })) : [{ title: zh ? '目录' : 'Contents', articles: docs.filter((doc) => !doc.data.contentId.endsWith('/index')) }];
+const isLearning = section === 'ai-engineering' || isColumn;
+const homeSection = isLearning ? 'ai-engineering' : section;
+const allDocs = await getCollection('docs');
+const docs = allDocs.filter((doc) => doc.id.startsWith(`${lang}/`) && doc.data.contentId.startsWith(`${section}/`));
+const label = isLearning ? (zh ? '学习 AI 开发' : 'Learn AI Development') : section === 'steerline' ? (zh ? '学习 SteerLine' : 'Learn SteerLine') : section === 'docs' ? (zh ? '文档' : 'Documentation') : entry.data.title;
+const groups = isLearning ? learningGroups.map((group) => ({ title: group.title[zh ? 0 : 1], sequential: group.sequential, articles: group.items.map((slug) => allDocs.find((doc) => doc.data.contentId === `${group.section}/${slug}` && doc.id.startsWith(`${lang}/`)) ?? (!group.sequential ? allDocs.find((doc) => doc.data.contentId === `${group.section}/${slug}` && doc.id.startsWith('zh-cn/')) : undefined)).filter((doc) => !!doc) })) : [{ title: zh ? '目录' : 'Contents', sequential: true, articles: docs.filter((doc) => !doc.data.contentId.endsWith('/index')) }];
 ---
 <div class="course-sidebar">
-  <p class="course-sidebar-kicker">{isColumn ? 'STEERLINE / ARTICLES' : section === 'ai-engineering' ? 'LEARNING / AI' : 'STEERLINE / GUIDES'}</p>
-  <a class="course-sidebar-home" href={`/${lang}/${section}/`}>{label}<span aria-hidden="true">↗</span></a>
-  {section === 'ai-engineering' && <a class="course-overview" href={`/${lang}/ai-engineering/`}>{zh ? '← 返回学习首页' : '← Learning overview'}</a>}
-  {groups.filter((group) => group.articles.length > 0).map((group) => <details open={group.articles.some((doc) => doc.data.contentId === entry.data.contentId) || section !== 'ai-engineering'}><summary>{group.title}</summary><List>{group.articles.map((doc, index) => <li><a href={`/${doc.id.replace(/\/index$/, '')}/`} aria-current={entry.id === doc.id ? 'page' : undefined}>{!isColumn && <span class="course-item-number">{String(index + 1).padStart(2, '0')}</span>}<span>{doc.data.title}</span></a></li>)}</List></details>)}
+  <p class="course-sidebar-kicker">{isLearning ? 'LEARNING / AI' : 'STEERLINE / GUIDES'}</p>
+  <a class="course-sidebar-home" href={`/${lang}/${homeSection}/`}>{label}<span aria-hidden="true">↗</span></a>
+  {isLearning && <a class="course-overview" href={`/${lang}/ai-engineering/`}>{zh ? '← 返回学习首页' : '← Learning overview'}</a>}
+  {groups.filter((group) => group.articles.length > 0).map((group) => {
+    const List = group.sequential ? 'ol' : 'ul';
+    return <details open={group.articles.some((doc) => doc.data.contentId === entry.data.contentId) || (isColumn && !group.sequential) || !isLearning}><summary>{group.title}</summary><List>{group.articles.map((doc, index) => <li><a href={`/${doc.id.replace(/\/index$/, '')}/`} aria-current={entry.id === doc.id ? 'page' : undefined}>{group.sequential && <span class="course-item-number">{String(index + 1).padStart(2, '0')}</span>}<span>{doc.data.title}{!zh && doc.id.startsWith('zh-cn/') && ' (中文)'}</span></a></li>)}</List></details>;
+  })}
 </div>

@@ -3,7 +3,7 @@ title: "Learn AI Development"
 description: "Build your AI development practice with clear specifications, reliable verification, and human judgment."
 contentId: "ai-engineering/index"
 translationStatus: current
-updated: "2026-10-30"
+updated: "2026-10-31"
 sidebar:
   order: 0
 ---
@@ -40,3 +40,11 @@ sidebar:
 4. [Structural Abstraction](./cognitive-science/structural-abstraction/)
 5. [Knowledge Evolution Across AI Generations](./cognitive-science/generational-knowledge-evolution/)
 6. [Useful Knowledge in the AI Era: Changing Problem Representations](./cognitive-science/problem-representation/)
+
+## Articles
+
+Standalone articles to read in any order. The Chinese editions are being prepared; English translations will follow.
+
+- [You Don't Need to Learn Harnesses — Chinese](/zh-cn/articles/no-need-to-learn-harness/)
+- [You Don't Need to Learn to Develop Agents — Chinese](/zh-cn/articles/no-need-to-develop-agents/)
+- [AI's Limited Attention — Chinese](/zh-cn/articles/ai-limited-attention/)

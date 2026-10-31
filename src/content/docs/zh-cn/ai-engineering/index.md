@@ -3,7 +3,7 @@ title: "学习 AI 开发"
 description: "从理解 AI 的边界，到组织真实的软件项目，建立自己的开发方法。"
 contentId: "ai-engineering/index"
 translationStatus: current
-updated: "2026-10-30"
+updated: "2026-10-31"
 sidebar:
   order: 0
 ---
@@ -40,3 +40,11 @@ sidebar:
 4. [结构抽象](./cognitive-science/structural-abstraction/)
 5. [AI的代际知识演化](./cognitive-science/generational-knowledge-evolution/)
 6. [AI时代有用的知识，要改变问题表征](./cognitive-science/problem-representation/)
+
+## 专栏文章
+
+每篇可独立阅读，无需按顺序学习。
+
+- [不用学harness](/zh-cn/articles/no-need-to-learn-harness/)
+- [不用学开发Agent](/zh-cn/articles/no-need-to-develop-agents/)
+- [AI的有限注意力](/zh-cn/articles/ai-limited-attention/)
