@@ -20,6 +20,8 @@ Follow the [deployment runbook](docs/deployment.md) for Chinese/English alignmen
 
 Articles live in `src/content/docs/<locale>/`. Write and review Chinese first, then translate and review English. Corresponding pages share a `contentId` in frontmatter. The initial-content script is a historical bootstrap helper; edit the Markdown pages directly afterwards.
 
+Standalone teaching articles live under `articles/` and are accessible from the Articles navigation item. They can be read in any order, so their sidebar has no lesson numbers and their pages have no previous/next navigation. Use `sidebar.order` to arrange the article list without implying a learning sequence.
+
 Follow the [tutorial writing guide](docs/writing-guide.md) when drafting or revising articles. It records the agreed approach to authorial judgment, explanations, audience, flow, and preserving essential information.
 
 Each article records `contentId`, `translationStatus`, and `updated`. Update `translationStatus` to `needs-sync` when its translation is stale and restore `current` after review; stale pages display a notice. Document applicable product versions and verification dates for operational instructions.

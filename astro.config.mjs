@@ -63,6 +63,7 @@ export default defineConfig({
           },
         ],
       },
+      { label: 'Articles', translations: { 'zh-CN': '专栏文章' }, autogenerate: { directory: 'articles' } },
       { label: 'Learn SteerLine', translations: { 'zh-CN': '学习 SteerLine' }, autogenerate: { directory: 'steerline' } },
       { label: 'Docs', translations: { 'zh-CN': '文档' }, autogenerate: { directory: 'docs' } },
     ],

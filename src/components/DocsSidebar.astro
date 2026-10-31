@@ -5,13 +5,15 @@ const { entry, locale } = Astro.locals.starlightRoute;
 const zh = locale === 'zh-cn';
 const lang = zh ? 'zh-cn' : 'en';
 const section = entry.data.contentId?.split('/')[0] ?? 'docs';
-const docs = (await getCollection('docs')).filter((doc) => doc.id.startsWith(`${lang}/`) && doc.data.contentId.startsWith(`${section}/`));
-const label = section === 'ai-engineering' ? (zh ? '学习 AI 开发' : 'Learn AI Development') : section === 'steerline' ? (zh ? '学习 SteerLine' : 'Learn SteerLine') : section === 'docs' ? (zh ? '文档' : 'Documentation') : entry.data.title;
+const isColumn = section === 'articles';
+const List = isColumn ? 'ul' : 'ol';
+const docs = (await getCollection('docs')).filter((doc) => doc.id.startsWith(`${lang}/`) && doc.data.contentId.startsWith(`${section}/`)).sort((a, b) => (a.data.sidebar?.order ?? 0) - (b.data.sidebar?.order ?? 0));
+const label = isColumn ? (zh ? '专栏文章' : 'Articles') : section === 'ai-engineering' ? (zh ? '学习 AI 开发' : 'Learn AI Development') : section === 'steerline' ? (zh ? '学习 SteerLine' : 'Learn SteerLine') : section === 'docs' ? (zh ? '文档' : 'Documentation') : entry.data.title;
 const groups = section === 'ai-engineering' ? learningGroups.map((group) => ({ title: group.title[zh ? 0 : 1], articles: group.items.map((slug) => docs.find((doc) => doc.data.contentId === `ai-engineering/${slug}`)).filter((doc) => !!doc) })) : [{ title: zh ? '目录' : 'Contents', articles: docs.filter((doc) => !doc.data.contentId.endsWith('/index')) }];
 ---
 <div class="course-sidebar">
-  <p class="course-sidebar-kicker">{section === 'ai-engineering' ? 'LEARNING / AI' : 'STEERLINE / GUIDES'}</p>
+  <p class="course-sidebar-kicker">{isColumn ? 'STEERLINE / ARTICLES' : section === 'ai-engineering' ? 'LEARNING / AI' : 'STEERLINE / GUIDES'}</p>
   <a class="course-sidebar-home" href={`/${lang}/${section}/`}>{label}<span aria-hidden="true">↗</span></a>
   {section === 'ai-engineering' && <a class="course-overview" href={`/${lang}/ai-engineering/`}>{zh ? '← 返回学习首页' : '← Learning overview'}</a>}
-  {groups.map((group) => <details open={group.articles.some((doc) => doc.data.contentId === entry.data.contentId) || section !== 'ai-engineering'}><summary>{group.title}</summary><ol>{group.articles.map((doc, index) => <li><a href={`/${doc.id.replace(/\/index$/, '')}/`} aria-current={entry.id === doc.id ? 'page' : undefined}><span>{String(index + 1).padStart(2, '0')}</span><span>{doc.data.title}</span></a></li>)}</ol></details>)}
+  {groups.filter((group) => group.articles.length > 0).map((group) => <details open={group.articles.some((doc) => doc.data.contentId === entry.data.contentId) || section !== 'ai-engineering'}><summary>{group.title}</summary><List>{group.articles.map((doc, index) => <li><a href={`/${doc.id.replace(/\/index$/, '')}/`} aria-current={entry.id === doc.id ? 'page' : undefined}>{!isColumn && <span class="course-item-number">{String(index + 1).padStart(2, '0')}</span>}<span>{doc.data.title}</span></a></li>)}</List></details>)}
 </div>

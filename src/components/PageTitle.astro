@@ -6,11 +6,12 @@ const zh = locale === 'zh-cn';
 const lang = zh ? 'zh-cn' : 'en';
 const contentId = entry.data.contentId ?? '404/index';
 const isLearning = contentId.startsWith('ai-engineering/');
+const isColumn = contentId.startsWith('articles/');
 ---
-<div class="article-breadcrumb"><a href={`/${lang}/`}>{zh ? '首页' : 'Home'}</a><span>/</span>{contentId.startsWith('404/') ? <span>{entry.data.title}</span> : <a href={`/${lang}/${contentId.split('/')[0]}/`}>{isLearning ? (zh ? '学习 AI 开发' : 'Learn AI Development') : contentId.startsWith('steerline/') ? (zh ? '学习 SteerLine' : 'Learn SteerLine') : entry.data.title}</a>}</div>
+<div class="article-breadcrumb"><a href={`/${lang}/`}>{zh ? '首页' : 'Home'}</a><span>/</span>{contentId.startsWith('404/') ? <span>{entry.data.title}</span> : <a href={`/${lang}/${contentId.split('/')[0]}/`}>{isColumn ? (zh ? '专栏文章' : 'Articles') : isLearning ? (zh ? '学习 AI 开发' : 'Learn AI Development') : contentId.startsWith('steerline/') ? (zh ? '学习 SteerLine' : 'Learn SteerLine') : entry.data.title}</a>}</div>
 {stale && <aside class="translation-notice" role="note">{locale === 'zh-cn' ? '此版本可能落后于原文，正在等待同步。' : titleOnly ? 'English content will be added after the Chinese edition is complete.' : 'This translation may be out of date and is awaiting an update.'}</aside>}
 <h1 id="_top">{entry.data.title}</h1>
-{titleOnly && <p class="article-draft-note">{zh ? '本篇内容正在整理中。你可以先浏览学习目录，了解完整的内容结构。' : 'This guide is being prepared. Explore the learning overview to see the full curriculum.'}</p>}
+{titleOnly && <p class="article-draft-note">{isColumn ? (zh ? '本篇内容正在整理中。专栏文章可独立阅读，无需按顺序学习。' : 'This article is being prepared. Each article stands on its own and can be read in any order.') : zh ? '本篇内容正在整理中。你可以先浏览学习目录，了解完整的内容结构。' : 'This guide is being prepared. Explore the learning overview to see the full curriculum.'}</p>}
 {entry.data.version && <p class="article-metadata">
   <span>{locale === 'zh-cn' ? '版本' : 'Version'} {entry.data.version}</span>
   <span>{locale === 'zh-cn' ? '更新日期' : 'Updated'} <time datetime={entry.data.updated}>{entry.data.updated}</time></span>
