@@ -65,7 +65,6 @@ export default defineConfig({
         ],
       },
       { label: 'Learn SteerLine', translations: { 'zh-CN': '学习 SteerLine' }, autogenerate: { directory: 'steerline' } },
-      { label: 'Docs', translations: { 'zh-CN': '文档' }, autogenerate: { directory: 'docs' } },
     ],
   })],
 });

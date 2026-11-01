@@ -7,7 +7,6 @@ export function getStaticPaths() { return [{ params: { lang: 'en' } }, { params:
 const zh = Astro.params.lang === 'zh-cn';
 const lang = zh ? 'zh-cn' : 'en';
 const t = zh ? {
-  nav: ['产品', '学习 AI 开发', '学习 SteerLine', '文档'],
   eyebrow: '面向严肃的 AI 软件工程', title: '让 AI 开发，\n沿着清晰的方向前进。',
   lead: '从目标到交付，SteerLine 用清晰的规划和任务依赖组织 AI 协作，让人始终掌握方向与关键决策。',
   primary: '了解 SteerLine', secondary: '学习 AI 开发', note: '开源项目 · 尚未发布',
@@ -21,7 +20,6 @@ const t = zh ? {
   cards: [['01 / AI 工程', '学习 AI 开发', '从 Spec、worktree 到 AI 的局限与人的角色，建立可持续的开发方法。', '探索教程'], ['02 / STEERLINE', '学习 SteerLine', '理解 Roadmap 和 DAG 如何帮助组织工作，再逐步了解产品的使用方式。', '探索教程']],
   status: '持续建设中', statusTitle: '工程，是一个持续改进的过程。', statusText: 'SteerLine 是一个尚未发布的开源项目。关注项目进展，了解目前的能力与边界。', github: '在 GitHub 查看项目', footer: '为认真构建软件的人而作。', about: '关于', lang: 'English',
 } : {
-  nav: ['Product', 'Learn AI Development', 'Learn SteerLine', 'Docs'],
   eyebrow: 'FOR SERIOUS AI SOFTWARE ENGINEERING', title: 'Give AI development\na clear direction.',
   lead: 'From intent to delivery, SteerLine brings structure to AI collaboration with clear plans and task dependencies, keeping people in control of the decisions that matter.',
   primary: 'Explore SteerLine', secondary: 'Learn AI Development', note: 'OPEN SOURCE · NOT YET RELEASED',
@@ -35,7 +33,7 @@ const t = zh ? {
   cards: [['01 / AI ENGINEERING', 'Learn AI Development', 'Build lasting practices around specs, worktrees, AI limitations, and the role of people.', 'Explore the guides'], ['02 / STEERLINE', 'Learn SteerLine', 'Understand how roadmaps and DAGs organize work, then explore the product itself.', 'Explore the guides']],
   status: 'A WORK IN PROGRESS', statusTitle: 'Engineering is a practice of continuous improvement.', statusText: 'SteerLine is an open-source project that has not yet been released. Follow its progress and see its current scope.', github: 'View the project on GitHub', footer: 'For people who care about building software.', about: 'About', lang: '中文',
 };
-const links = [`/${lang}/product/`, `/${lang}/ai-engineering/`, `/${lang}/steerline/`, `/${lang}/docs/`, `/${lang}/updates/`];
+const links = [`/${lang}/product/`, `/${lang}/ai-engineering/`, `/${lang}/steerline/`, `/${lang}/updates/`];
 ---
 <!doctype html>
 <html lang={zh ? 'zh-CN' : 'en'} class:list={[{ 'locale-zh': zh }]}>
@@ -53,7 +51,7 @@ const links = [`/${lang}/product/`, `/${lang}/ai-engineering/`, `/${lang}/steerl
       </section>
       <section class="principles section"><div class="wrap"><div class="section-heading"><p class="eyebrow">{zh ? '为什么选择结构化流程' : 'THE IDEA BEHIND STEERLINE'}</p><div><h2>{t.intro}</h2><p>{t.introText}</p></div></div><div class="principle-grid">{t.principles.map((p, i) => <article><span class="number">0{i + 1} /</span><h3>{p}</h3><p>{t.descriptions[i]}</p></article>)}</div></div></section>
       <section class="learning section wrap"><div class="learning-heading"><div><p class="eyebrow">{t.learnLabel}</p><h2>{t.learnTitle}</h2></div><p>{t.learnText}</p></div><div class="learn-grid">{t.cards.map((card, i) => <a class:list={['learn-card', { green: i === 1 }]} href={links[i + 1]}><span class="card-kicker">{card[0]}</span><span class="card-arrow">↗</span><div><h3>{card[1]}</h3><p>{card[2]}</p><span class="card-cta">{card[3]} <span>→</span></span></div></a>)}</div></section>
-      <section class="status"><div class="wrap status-inner"><div><p class="eyebrow"><span class="signal"></span>{t.status}</p><h2>{t.statusTitle}</h2></div><div><p>{t.statusText}</p><a class="button light" href="https://github.com/erranliu/SteerLine">{t.github}<span>↗</span></a><a class="status-updates" href={links[4]}>{zh ? '查看项目更新' : 'Project updates'} →</a></div></div></section>
+      <section class="status"><div class="wrap status-inner"><div><p class="eyebrow"><span class="signal"></span>{t.status}</p><h2>{t.statusTitle}</h2></div><div><p>{t.statusText}</p><a class="button light" href="https://github.com/erranliu/SteerLine">{t.github}<span>↗</span></a><a class="status-updates" href={links[3]}>{zh ? '查看项目更新' : 'Project updates'} →</a></div></div></section>
     </main>
     <SiteFooter lang={lang} />
   </body>

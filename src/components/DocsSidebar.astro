@@ -10,7 +10,7 @@ const isLearning = section === 'ai-engineering' || isColumn;
 const homeSection = isLearning ? 'ai-engineering' : section;
 const allDocs = await getCollection('docs');
 const docs = allDocs.filter((doc) => doc.id.startsWith(`${lang}/`) && doc.data.contentId.startsWith(`${section}/`));
-const label = isLearning ? (zh ? '学习 AI 开发' : 'Learn AI Development') : section === 'steerline' ? (zh ? '学习 SteerLine' : 'Learn SteerLine') : section === 'docs' ? (zh ? '文档' : 'Documentation') : entry.data.title;
+const label = isLearning ? (zh ? '学习 AI 开发' : 'Learn AI Development') : section === 'steerline' ? (zh ? '学习 SteerLine' : 'Learn SteerLine') : entry.data.title;
 const groups = isLearning ? learningGroups.map((group) => ({ title: group.title[zh ? 0 : 1], sequential: group.sequential, articles: group.items.map((slug) => allDocs.find((doc) => doc.data.contentId === `${group.section}/${slug}` && doc.id.startsWith(`${lang}/`)) ?? (!group.sequential ? allDocs.find((doc) => doc.data.contentId === `${group.section}/${slug}` && doc.id.startsWith('zh-cn/')) : undefined)).filter((doc) => !!doc) })) : [{ title: zh ? '目录' : 'Contents', sequential: true, articles: docs.filter((doc) => !doc.data.contentId.endsWith('/index')) }];
 ---
 <div class="course-sidebar">

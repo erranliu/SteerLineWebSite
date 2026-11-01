@@ -101,13 +101,6 @@ Explicit dependencies help identify work that can happen in parallel and work th
         ('DAG 与任务依赖', '明确顺序和前置条件', '''有向无环图（DAG）可以表达不存在循环路径的依赖关系。在任务图中，一条边可以表示一个任务必须在另一个任务开始前完成。
 
 明确依赖有助于识别可以并行的工作和必须等待的工作。有效的任务图应反映真实前提：多余依赖会降低并行度，遗漏依赖可能导致过早执行。具体执行行为以当前实现为准。''')),
-    'docs/index': (
-        ('Reference', 'Find the current technical details', '''SteerLine is not yet released. For current setup, configuration, commands, and known limitations, consult the [SteerLine repository](https://github.com/erranliu/SteerLine) and its documentation.
-
-Version-specific reference pages will be published here as the product and its public workflows stabilize.'''),
-        ('参考文档', '查找当前技术细节', '''SteerLine 尚未发布。有关当前安装、配置、命令和已知限制，请查阅 [SteerLine 项目仓库](https://github.com/erranliu/SteerLine)及其中的文档。
-
-随着产品和公开工作流程趋于稳定，这里将补充适用于具体版本的参考页面。''')),
     'updates/index': (
         ('Project updates', 'Follow the work as it develops', '''SteerLine has not yet been released. The [project repository](https://github.com/erranliu/SteerLine) is the source for current development activity and project documentation. Release notes will be published here when releases are available.'''),
         ('项目更新', '关注项目的持续进展', '''SteerLine 尚未发布。[项目仓库](https://github.com/erranliu/SteerLine)是了解当前开发活动和项目文档的入口。发布版本后，这里将提供发布记录。''')),
