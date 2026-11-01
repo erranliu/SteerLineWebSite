@@ -8,7 +8,7 @@ updated: "2026-11-01"
 
 ## About the author
 
-My name is Liu Ming (刘明). I live in Beijing, have a technical background, and have spent 20 years in the games industry. Since 2012, I have started two ventures and raised several rounds of funding. Alongside SteerLine, I also have a small game company that continues to operate steadily.
+My name is Liu Ming (刘明). I live in Beijing, have a technical background, and have spent 20 years in the games industry. Since 2012, I have started two ventures. Alongside SteerLine, I also have a small game company that continues to operate steadily.
 
 ## A real transition, delivery challenges, and project experience
 
@@ -27,6 +27,12 @@ Starting in May 2026, the AI development community's understanding began to sett
 SteerLine does not approach AGI as something simple or easily attainable. We aim to keep evolving the development workflow alongside the community's latest engineering insights, helping every user learn and adopt up-to-date workflows at the lowest possible cost.
 
 Over the long term, we aim first for reliable delivery with AI development, then for greater efficiency and a gradual reduction in human involvement and workload, ultimately progressing toward engineering AGI.
+
+## SteerLine is not yet ready for release
+
+If you are interested, you can find the development version on GitHub. It is usable, but not yet complete enough for release.
+
+We aim to deliver the first version by the end of 2026.
 
 ## Why we write these AI development guides
 
