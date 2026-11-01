@@ -1,9 +1,9 @@
 ---
-title: "Spec驱动开发"
-description: "理解从对话式开发转向Spec驱动的范式变化，以及它为什么是严肃交付和开发能力积累的必经起点。"
+title: "什么是 Spec 驱动开发？从对话到需求规格"
+description: "理解 Spec 驱动开发与对话式开发的区别，学习用需求规格明确行为、范围和验收条件，以及为什么它是严肃交付与开发能力积累的必经起点。"
 contentId: "ai-engineering/specs"
 translationStatus: current
-updated: "2026-10-30"
+updated: "2026-11-01"
 version: "0.2.2"
 sidebar:
   order: 7

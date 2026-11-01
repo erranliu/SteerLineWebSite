@@ -1,11 +1,21 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import sitemap from '@astrojs/sitemap';
+import { getEmptyContentPaths } from './scripts/empty-content.mjs';
+
+const excludedPaths = new Set([
+  ...getEmptyContentPaths(),
+  '/',
+  '/en/ai-engineering/human-role/',
+  '/zh-cn/ai-engineering/human-role/',
+]);
 
 export default defineConfig({
   site: 'https://steerline.dev',
   integrations: [starlight({
     title: 'SteerLine',
     defaultLocale: 'en',
+    routeMiddleware: './src/route-middleware.ts',
     locales: {
       en: { label: 'English', lang: 'en' },
       'zh-cn': { label: '简体中文', lang: 'zh-CN' },
@@ -66,5 +76,8 @@ export default defineConfig({
       },
       { label: 'Learn SteerLine', translations: { 'zh-CN': '学习 SteerLine' }, autogenerate: { directory: 'steerline' } },
     ],
+  }), sitemap({
+    filter: (page) => !excludedPaths.has(new URL(page).pathname),
+    i18n: { defaultLocale: 'en', locales: { en: 'en', 'zh-cn': 'zh-CN' } },
   })],
 });

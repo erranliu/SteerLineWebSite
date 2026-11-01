@@ -27,3 +27,9 @@ Follow the [tutorial writing guide](docs/writing-guide.md) when drafting or revi
 Each article records `contentId`, `translationStatus`, and `updated`. Update `translationStatus` to `needs-sync` when its translation is stale and restore `current` after review; stale pages display a notice. Document applicable product versions and verification dates for operational instructions.
 
 The language switcher matches content by ID and indicates when the other language is unavailable. The content check requires every English page to have a Chinese source, preventing Starlight's default-language fallback from silently serving English as Chinese. Chinese-only pages may be published while their English translations are in progress.
+
+## Search indexing
+
+Title-only documents stay available in the learning navigation, but Starlight route middleware adds `noindex, follow` until they have body content. The sitemap integration excludes the same empty documents, the root redirect, and the legacy `human-role` redirects. Adding article content restores indexing eligibility on the next build; no manual robots flag needs to be removed. Keep this policy aligned with `scripts/empty-content.mjs` when changing content routes.
+
+The bilingual homepages use `SeoHead` for titles, descriptions, self-referencing canonical URLs, absolute language alternates, and social metadata. `public/robots.txt` permits crawling and points to `/sitemap-index.xml`. After building, check the rendered HTML and `dist/sitemap-0.xml` before deploying.

@@ -3,6 +3,7 @@ import '../../styles/home.css';
 import '../../styles/mobile.css';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
+import SeoHead from '../../components/SeoHead.astro';
 export function getStaticPaths() { return [{ params: { lang: 'en' } }, { params: { lang: 'zh-cn' } }]; }
 const zh = Astro.params.lang === 'zh-cn';
 const lang = zh ? 'zh-cn' : 'en';
@@ -34,14 +35,14 @@ const t = zh ? {
   status: 'A WORK IN PROGRESS', statusTitle: 'Engineering is a practice of continuous improvement.', statusText: 'SteerLine is an open-source project that has not yet been released. Follow its progress and see its current scope.', github: 'View the project on GitHub', footer: 'For people who care about building software.', about: 'About', lang: '中文',
 };
 const links = [`/${lang}/product/`, `/${lang}/ai-engineering/`, `/${lang}/steerline/`, `/${lang}/updates/`];
+const seoTitle = zh ? 'SteerLine：用 Roadmap 与任务依赖组织 AI 软件开发' : 'SteerLine: Organize AI Software Development with Roadmaps and Task Dependencies';
+const seoDescription = zh ? 'SteerLine 是一个尚未发布的开源项目，用 Roadmap、任务依赖和人工审查组织 AI 软件开发。学习 Spec 驱动开发、Git Worktree 与 AI 协作方法。' : 'SteerLine is an unreleased open-source project for organizing AI software development with roadmaps, task dependencies, and human review. Explore guides to specs, Git worktrees, and AI collaboration.';
 ---
 <!doctype html>
 <html lang={zh ? 'zh-CN' : 'en'} class:list={[{ 'locale-zh': zh }]}>
   <head>
     <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>SteerLine — {zh ? '让 AI 开发沿着清晰的方向前进' : 'Give AI development a clear direction'}</title>
-    <meta name="description" content={t.lead} />
-    <link rel="alternate" hreflang="en" href="/en/" /><link rel="alternate" hreflang="zh-CN" href="/zh-cn/" />
+    <SeoHead title={seoTitle} description={seoDescription} lang={lang} />
   </head>
   <body>
     <header class="site-header"><SiteHeader lang={lang} /></header>

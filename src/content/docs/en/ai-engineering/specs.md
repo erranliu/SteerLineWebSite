@@ -1,9 +1,9 @@
 ---
-title: "Spec-Driven Development"
-description: "Understand the shift from conversational development to Spec-driven development, and why it is the necessary starting point for serious delivery and lasting development capability."
+title: "What Is Spec-Driven Development? From Chat to Requirements"
+description: "Understand Spec-driven AI development versus conversational development. Define behavior, scope, and acceptance criteria, and learn why specs underpin serious delivery and lasting development capability."
 contentId: "ai-engineering/specs"
 translationStatus: current
-updated: "2026-10-30"
+updated: "2026-11-01"
 version: "0.2.2"
 sidebar:
   order: 7

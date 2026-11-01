@@ -1,9 +1,9 @@
 ---
-title: "1+1+1 (Worktree+Spec+PR): Starting Parallel Development"
-description: "Organize each task around one worktree, one Spec, and one PR to work in parallel with less attention spent tracking project state."
+title: "Parallel AI Development with Git Worktrees, Specs, and PRs"
+description: "Use the 1+1+1 workflow: one Git worktree, one Spec, and one PR per AI task. Isolate changes, define requirements, and review results with less attention spent tracking project state."
 contentId: "ai-engineering/worktrees"
 translationStatus: current
-updated: "2026-10-30"
+updated: "2026-11-01"
 version: "0.2.4"
 sidebar:
   order: 8

@@ -1,9 +1,9 @@
 ---
-title: "Git"
-description: "Understand repositories and branches, start using Git with GitHub, clone, commit, and push, and learn what worktrees and PRs enable in AI development."
+title: "Git for AI Development: Repositories, Branches, and PRs"
+description: "Learn Git for AI development: repositories, branches, GitHub setup, clone, commit, and push, plus how worktrees and pull requests support task isolation and review."
 contentId: "ai-engineering/git"
 translationStatus: current
-updated: "2026-10-30"
+updated: "2026-11-01"
 version: "0.1.4"
 sidebar:
   order: 6

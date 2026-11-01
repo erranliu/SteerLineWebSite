@@ -1,9 +1,9 @@
 ---
-title: "1+1+1(Worktree+Spec+PR)：开始并行开发"
-description: "用一个Worktree、一份Spec和一个PR组织每个任务，支持并行开发，大幅降低维护项目状态所需的注意力。"
+title: "AI 并行开发：Worktree + Spec + PR 的 1+1+1 方法"
+description: "用一个 Git Worktree、一份 Spec 和一个 PR 绑定每个 AI 开发任务，隔离修改、明确需求并集中审查结果，在并行开发中大幅降低维护项目状态所需的注意力。"
 contentId: "ai-engineering/worktrees"
 translationStatus: current
-updated: "2026-10-30"
+updated: "2026-11-01"
 version: "0.2.4"
 sidebar:
   order: 8

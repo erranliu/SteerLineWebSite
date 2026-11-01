@@ -1,9 +1,9 @@
 ---
-title: "Git"
-description: "理解仓库和分支，从GitHub建仓、Clone、提交和Push开始使用Git，再认识Worktree与PR为AI开发提供的能力。"
+title: "AI 开发入门：Git、分支与 PR 基础"
+description: "面向 AI 开发初学者，理解 Git 仓库和分支，从 GitHub 建仓、Clone、提交和 Push 开始实践，再认识 Worktree 与 PR 如何支持任务隔离和审查。"
 contentId: "ai-engineering/git"
 translationStatus: current
-updated: "2026-10-30"
+updated: "2026-11-01"
 version: "0.1.4"
 sidebar:
   order: 6
