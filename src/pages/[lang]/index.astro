@@ -1,58 +1,75 @@
 ---
 import '../../styles/home.css';
-import '../../styles/mobile.css';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import SeoHead from '../../components/SeoHead.astro';
-export function getStaticPaths() { return [{ params: { lang: 'en' } }, { params: { lang: 'zh-cn' } }]; }
-const zh = Astro.params.lang === 'zh-cn';
-const lang = zh ? 'zh-cn' : 'en';
-const t = zh ? {
-  eyebrow: '面向严肃的 AI 软件工程', title: '让 AI 开发，\n沿着清晰的方向前进。',
-  lead: '从目标到交付，SteerLine 用清晰的规划和任务依赖组织 AI 协作，让人始终掌握方向与关键决策。',
-  primary: '了解 SteerLine', secondary: '学习 AI 开发', note: '开源项目 · 尚未发布',
-  diagram: '一个清晰的工作流', steps: ['目标与规格', 'Roadmap', '任务与依赖', '执行与验证', '人的审查'],
-  dnote: '目标由人定义，关键决策由人掌握。', intro: '从写代码，走向做工程。',
-  introText: 'AI 能加速实现，但复杂项目还需要清晰的目标、可追踪的决策和可靠的验证。SteerLine 围绕这些基础组织工作。',
-  principles: ['先明确方向', '让工作有序推进', '人始终在环'],
-  descriptions: ['用规格和规划表达要解决的问题，让执行有清楚的依据。', '用 Roadmap 组织工作，用任务依赖表达先后关系。', '人负责产品目标、关键决策和审查，AI 参与执行。'],
-  learnLabel: '两条学习路径', learnTitle: '从方法出发，\n到实践落地。',
-  learnText: '无论你是探索 AI 开发，还是准备了解 SteerLine，都可以从这里开始。',
-  cards: [['01 / AI 工程', '学习 AI 开发', '从 Spec、worktree 到 AI 的局限与人的角色，建立可持续的开发方法。', '探索教程'], ['02 / STEERLINE', '学习 SteerLine', '理解 Roadmap 和 DAG 如何帮助组织工作，再逐步了解产品的使用方式。', '探索教程']],
-  status: '持续建设中', statusTitle: '工程，是一个持续改进的过程。', statusText: 'SteerLine 是一个尚未发布的开源项目。关注项目进展，了解目前的能力与边界。', github: '在 GitHub 查看项目', footer: '为认真构建软件的人而作。', about: '关于', lang: 'English',
-} : {
-  eyebrow: 'FOR SERIOUS AI SOFTWARE ENGINEERING', title: 'Give AI development\na clear direction.',
-  lead: 'From intent to delivery, SteerLine brings structure to AI collaboration with clear plans and task dependencies, keeping people in control of the decisions that matter.',
-  primary: 'Explore SteerLine', secondary: 'Learn AI Development', note: 'OPEN SOURCE · NOT YET RELEASED',
-  diagram: 'A MORE INTENTIONAL WORKFLOW', steps: ['Goals & specs', 'Roadmap', 'Tasks & dependencies', 'Execute & verify', 'Human review'],
-  dnote: 'People set the direction and own the key decisions.', intro: 'From writing code to building with intent.',
-  introText: 'AI can accelerate implementation. Complex projects still need clear goals, traceable decisions, and reliable verification. SteerLine is built around those foundations.',
-  principles: ['Start with direction', 'Make work flow', 'Keep people in control'],
-  descriptions: ['Use specifications and plans to make the problem and the intended outcome explicit.', 'Organize work with a roadmap and make dependencies between tasks visible.', 'People own product goals, key decisions, and review while AI helps carry out the work.'],
-  learnLabel: 'TWO PATHS TO EXPLORE', learnTitle: 'From better thinking\nto practical work.',
-  learnText: 'Whether you are exploring AI development or getting to know SteerLine, start here.',
-  cards: [['01 / AI ENGINEERING', 'Learn AI Development', 'Build lasting practices around specs, worktrees, AI limitations, and the role of people.', 'Explore the guides'], ['02 / STEERLINE', 'Learn SteerLine', 'Understand how roadmaps and DAGs organize work, then explore the product itself.', 'Explore the guides']],
-  status: 'A WORK IN PROGRESS', statusTitle: 'Engineering is a practice of continuous improvement.', statusText: 'SteerLine is an open-source project that has not yet been released. Follow its progress and see its current scope.', github: 'View the project on GitHub', footer: 'For people who care about building software.', about: 'About', lang: '中文',
-};
-const links = [`/${lang}/product/`, `/${lang}/ai-engineering/`, `/${lang}/steerline/`, `/${lang}/updates/`];
-const seoTitle = zh ? 'SteerLine：用 Roadmap 与任务依赖组织 AI 软件开发' : 'SteerLine: Organize AI Software Development with Roadmaps and Task Dependencies';
-const seoDescription = zh ? 'SteerLine 是一个尚未发布的开源项目，用 Roadmap、任务依赖和人工审查组织 AI 软件开发。学习 Spec 驱动开发、Git Worktree 与 AI 协作方法。' : 'SteerLine is an unreleased open-source project for organizing AI software development with roadmaps, task dependencies, and human review. Explore guides to specs, Git worktrees, and AI collaboration.';
+export function getStaticPaths() { return ['en', 'zh-cn'].map((lang) => ({ params: { lang } })); }
+const lang = Astro.params.lang === 'zh-cn' ? 'zh-cn' : 'en';
+const zh = lang === 'zh-cn';
+const t = (chinese: string, english: string) => zh ? chinese : english;
+const product = `/${lang}/product/`;
+const github = 'https://github.com/erranliu/SteerLine';
+const title = t('SteerLine｜Roadmap 驱动的 AI 开发系统', 'SteerLine | A Roadmap-Driven AI Development System');
+const description = t('SteerLine 同时提供 AI 开发方法与配套工具，将 Roadmap、规格文档、任务依赖、Agent 执行和测试验收组织成持续推进的项目流程。开源项目，尚未发布。', 'SteerLine brings development methods and tools together around roadmaps, specifications, task dependencies, agent execution, and acceptance. Open source and not yet released.');
+const problems = [
+  [t('任务之间，怎样交接？', 'How does one task hand off to the next?'), t('前置接口是否稳定、后续任务能否开工，需要明确的成果和依赖关系。', 'Stable interfaces and explicit deliverables determine when dependent work can begin.')],
+  [t('开发依据，怎样保持有效？', 'How do working agreements stay current?'), t('需求、设计和实现持续变化，执行者需要找到当前有效的规格与项目约定。', 'As requirements, design, and code evolve, each agent needs current specifications and project agreements.')],
+  [t('交付结果，怎样证明？', 'What demonstrates delivery?'), t('编译成功、测试通过与需求完成回答不同问题，验收需要对应的版本和证据。', 'A successful build, a passing test, and a fulfilled requirement answer different questions. Acceptance needs versioned evidence.')],
+];
+const cycle = [t('产品目标', 'Product goals'), 'Roadmap', 'Spec / Plan', t('执行与测试', 'Build & test'), t('验收与交付', 'Accept & deliver')];
+const designs = [
+  { id: 'roadmap', title: t('Roadmap 驱动任务 DAG', 'Roadmaps drive the task DAG'), body: t('将阶段目标转为有明确成果和交接关系的任务。依赖决定开工条件，独立边界带来合理并行。', 'Turn milestones into tasks with clear outcomes and handoffs. Dependencies set start conditions; independent boundaries enable parallel work.') },
+  { id: 'acceptance', title: t('测试与验收从规划开始', 'Plan verification from the start'), body: t('Spec 定义通过条件，Plan 安排验证，验收记录保留实际结果。让完成判断有据可查。', 'Specs define acceptance criteria, plans arrange verification, and acceptance records preserve results. Completion has evidence behind it.') },
+  { id: 'documents', title: t('分层文档承载开发依据', 'Layered documents guide development'), body: t('通用规范、项目约定、任务文档与结果证据各有位置。开发方法通过 Agent 与工具落实到流程。', 'Shared standards, project agreements, task documents, and evidence each have a home. Agents and tools put these practices into the workflow.') },
+  { id: 'collaboration', title: t('明确人与 Agent 的分工', 'Give people and agents clear roles'), body: t('目标工作方式中，用户掌握取舍与授权，SteerLine Agent 管理项目流程，执行 Agent 承担具体任务。', 'In the intended workflow, people own decisions and authorization, the SteerLine Agent manages the project process, and execution agents carry out tasks.') },
+];
 ---
 <!doctype html>
-<html lang={zh ? 'zh-CN' : 'en'} class:list={[{ 'locale-zh': zh }]}>
-  <head>
-    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-    <SeoHead title={seoTitle} description={seoDescription} lang={lang} />
-  </head>
-  <body>
+<html lang={zh ? 'zh-CN' : 'en'}>
+  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><SeoHead title={title} description={description} lang={lang} /></head>
+  <body class:list={['home-page', { 'locale-zh': zh }]}>
+    <a class="skip-link" href="#main">{t('跳转到主要内容', 'Skip to content')}</a>
     <header class="site-header"><SiteHeader lang={lang} /></header>
-    <main>
-      <section class="hero wrap"><div class="hero-copy"><p class="eyebrow"><span class="signal"></span>{t.eyebrow}</p><h1>{t.title}</h1><p class="lead">{t.lead}</p><div class="actions"><a class="button dark" href={links[0]}>{t.primary}<span>↗</span></a><a class="text-link" href={links[1]}>{t.secondary} <span>→</span></a></div><p class="release"><span></span>{t.note}</p></div>
-        <div class="workflow" aria-label={t.diagram}><div class="workflow-head"><span>{t.diagram}</span><span>SL / 01</span></div><div class="flow-body"><div class="flow-line"></div>{t.steps.map((step, i) => <div class:list={['flow-row', { active: i === 1 }]}><span class="flow-index">0{i + 1}</span><span class="flow-node"></span><strong>{step}</strong><span class="flow-arrow">↗</span></div>)}</div><div class="workflow-foot"><span class="tiny-dot"></span>{t.dnote}</div><span class="corner corner-a"></span><span class="corner corner-b"></span></div>
+    <main id="main" data-pagefind-body>
+      <section class="hero wrap" aria-labelledby="home-title">
+        <div>
+          <p class="eyebrow"><span class="signal"></span>{t('Roadmap 驱动的 AI 开发系统', 'A ROADMAP-DRIVEN AI DEVELOPMENT SYSTEM')}</p>
+          <h1 id="home-title" data-pagefind-meta="title">{t('让 AI 开发，\n持续推进整个项目。', 'Keep AI development\nmoving the whole\nproject forward.')}</h1>
+          <p class="lead">{t('SteerLine 同时提供开发方法与配套工具，将项目规划、规格文档、任务依赖、开发执行与测试验收组织成持续推进的开发流程。', 'SteerLine brings development methods and tools together, connecting project planning, specifications, task dependencies, execution, and acceptance into an ongoing development process.')}</p>
+          <div class="actions"><a class="button dark" href={`${product}#workflow`}>{t('了解开发流程', 'Explore the workflow')} <span aria-hidden="true">↗</span></a><a class="text-link" href={github}>{t('查看开源项目', 'View on GitHub')} <span aria-hidden="true">↗</span></a></div>
+          <p class="release"><span class="signal"></span>{t('开源 · 尚未发布', 'OPEN SOURCE · NOT YET RELEASED')}</p>
+        </div>
+        <aside class="project-map" aria-label={t('项目依赖与开发闭环示意', 'Illustration of project dependencies and feedback')}>
+          <div class="map-caption"><span>SL / PROJECT FLOW</span><span>{t('产品方向示意', 'INTENDED WORKFLOW')}</span></div>
+          <div class="map-goal"><span class="map-label">ROADMAP / 01</span><strong>{t('交付一个新功能', 'Deliver a new feature')}</strong><p>{t('明确成果、范围与通过条件', 'Agree on outcomes, scope, and acceptance')}</p></div>
+          <div class="map-connector" aria-hidden="true">↓</div>
+          <div class="map-parallel"><div class="map-task"><span class="map-label">TASK A</span><strong>{t('公共接口', 'Shared interface')}</strong><span class="map-detail">Spec · Plan · PR</span></div><div class="map-task"><span class="map-label">TASK B</span><strong>{t('独立测试准备', 'Independent test setup')}</strong><span class="map-detail">Spec · Plan · PR</span></div></div>
+          <p class="map-dependency">↳ {t('使用接口的任务，等待前置交付', 'Consumers wait for the interface to be delivered')}</p>
+          <div class="map-delivery"><span aria-hidden="true">✓</span><div><strong>{t('核验结果，推进后续任务', 'Verify delivery. Unblock dependent work.')}</strong><span class="map-detail">{t('验收结果 · 交付证据', 'Acceptance results · Delivery evidence')}</span></div></div>
+          <div class="map-return"><span aria-hidden="true">↶</span>{t('交付结果回到 Roadmap，继续规划', 'Bring delivery results back into roadmap planning')}</div>
+        </aside>
       </section>
-      <section class="principles section"><div class="wrap"><div class="section-heading"><p class="eyebrow">{zh ? '为什么选择结构化流程' : 'THE IDEA BEHIND STEERLINE'}</p><div><h2>{t.intro}</h2><p>{t.introText}</p></div></div><div class="principle-grid">{t.principles.map((p, i) => <article><span class="number">0{i + 1} /</span><h3>{p}</h3><p>{t.descriptions[i]}</p></article>)}</div></div></section>
-      <section class="learning section wrap"><div class="learning-heading"><div><p class="eyebrow">{t.learnLabel}</p><h2>{t.learnTitle}</h2></div><p>{t.learnText}</p></div><div class="learn-grid">{t.cards.map((card, i) => <a class:list={['learn-card', { green: i === 1 }]} href={links[i + 1]}><span class="card-kicker">{card[0]}</span><span class="card-arrow">↗</span><div><h3>{card[1]}</h3><p>{card[2]}</p><span class="card-cta">{card[3]} <span>→</span></span></div></a>)}</div></section>
-      <section class="status"><div class="wrap status-inner"><div><p class="eyebrow"><span class="signal"></span>{t.status}</p><h2>{t.statusTitle}</h2></div><div><p>{t.statusText}</p><a class="button light" href="https://github.com/erranliu/SteerLine">{t.github}<span>↗</span></a><a class="status-updates" href={links[3]}>{zh ? '查看项目更新' : 'Project updates'} →</a></div></div></section>
+      <section class="section problems" aria-labelledby="problems-title"><div class="wrap">
+        <div class="section-heading"><p class="eyebrow">01 / {t('持续开发中的问题', 'THE PROJECT BETWEEN TASKS')}</p><div><h2 id="problems-title">{t('让每轮开发，\n都能接得上下一轮。', 'Make each round of development\nconnect to the next.')}</h2><p>{t('多 Agent 编排提供并行执行的基础。SteerLine 进一步关注项目如何被规划、约束、验证，以及如何根据交付结果继续演进。', 'Multi-agent orchestration provides a foundation for parallel execution. SteerLine also addresses how a project is planned, constrained, verified, and advanced by its delivery results.')}</p></div></div>
+        <div class="problem-grid">{problems.map(([heading, body], i) => <article><span class="number">0{i + 1}</span><h3>{heading}</h3><p>{body}</p></article>)}</div>
+      </div></section>
+      <section class="section wrap" aria-labelledby="cycle-title">
+        <div class="section-heading"><p class="eyebrow">02 / {t('目标开发闭环', 'THE INTENDED DEVELOPMENT LOOP')}</p><div><h2 id="cycle-title">{t('规划有依据，\n交付有回路。', 'Plan with context.\nFeed delivery back into the plan.')}</h2><p>{t('将目标拆成可交付成果，为执行明确依据与验证方式。实际交付再回到 Roadmap，支持下一轮安排。', 'Break goals into deliverables, define the basis for execution and verification, then use actual delivery to inform the next round of roadmap planning.')}</p></div></div>
+        <ol class="cycle-list">{cycle.map((step, i) => <li><span class="number">0{i + 1}</span><strong>{step}</strong>{i < cycle.length - 1 && <span class="cycle-arrow" aria-hidden="true">→</span>}</li>)}</ol>
+        <div class="cycle-return"><span aria-hidden="true">↶</span>{t('同步结果与待决策事项，继续维护 Roadmap', 'Bring results and open decisions back into the roadmap')}</div>
+        <a class="text-link section-link" href={`${product}#workflow`}>{t('用一个功能案例看完整流程', 'Follow one feature through the workflow')} <span aria-hidden="true">→</span></a>
+      </section>
+      <section class="section design-section" aria-labelledby="design-title"><div class="wrap">
+        <div class="section-heading"><p class="eyebrow">03 / {t('开发方法与配套工具', 'METHODS AND TOOLS TOGETHER')}</p><div><h2 id="design-title">{t('把开发方法，\n落实到项目流程。', 'Put development practices\ninto the project workflow.')}</h2><p>{t('SteerLine 的设计覆盖规划、文档、实现与验收，让多个执行者在多轮开发中使用明确的任务依据和交付要求。', 'SteerLine connects planning, documentation, implementation, and acceptance, giving multiple agents clear task agreements and delivery requirements across rounds of development.')}</p></div></div>
+        <div class="design-grid">{designs.map((item, i) => <a href={`${product}#${item.id}`} class="design-card"><span class="number">0{i + 1} /</span><h3>{item.title}</h3><p>{item.body}</p><span class="card-link">{t('了解设计', 'Explore the design')} <span aria-hidden="true">↗</span></span></a>)}</div>
+      </div></section>
+      <section class="section progress-section" aria-labelledby="progress-title"><div class="wrap">
+        <div class="section-heading"><p class="eyebrow">04 / {t('当前进展', 'WHERE THE PROJECT STANDS')}</p><div><h2 id="progress-title">{t('已有基础，\n也有明确的下一步。', 'A working foundation.\nA clear direction ahead.')}</h2><p>{t('当前已具备任务 DAG、依赖检查、执行反馈与真实 PR 合并核验，并已接入 Roadmap 转正的解析、文档生成和正式入图流程。Web 通过 SteerRunner 连接执行路径，各项已验范围以仓库记录为准。', 'The current foundation includes a task DAG, dependency checks, execution feedback, and PR merge verification, plus roadmap promotion through parsing, document generation, and task admission. The Web interface connects execution paths through SteerRunner; acceptance records define the verified scope.')}</p><p class="direction-note">{t('后续方向：面向用户的 SteerLine 主 Agent、完整项目周期管理，以及授权范围内的有限自主推进。', 'Next: a user-facing SteerLine lead agent, project lifecycle management, and limited autonomous progress within agreed authorization.')}</p><div class="actions"><a class="button light" href={`${product}#current-stage`}>{t('查看能力与边界', 'Capabilities and boundaries')} <span aria-hidden="true">↗</span></a><a class="text-link" href={`/${lang}/updates/`}>{t('项目更新', 'Project updates')} <span aria-hidden="true">→</span></a></div></div></div>
+      </div></section>
+      <section class="section wrap" aria-labelledby="learning-title">
+        <div class="section-heading"><p class="eyebrow">05 / {t('继续探索', 'CONTINUE EXPLORING')}</p><div><h2 id="learning-title">{t('理解方法，\n再走进实践。', 'Understand the methods.\nExplore the practice.')}</h2><p>{t('从通用的 AI 软件工程方法出发，进一步理解 SteerLine 的理念与工作方式。', 'Start with general AI software engineering methods, then explore the ideas and workflow behind SteerLine.')}</p></div></div>
+        <div class="learn-grid"><a class="learn-card" href={`/${lang}/ai-engineering/`}><span class="number">AI DEVELOPMENT</span><h3>{t('学习 AI 开发', 'Learn AI development')}</h3><p>{t('从 Spec、Git Worktree 到 AI 的边界，建立自己的开发方法。', 'Build your practice around specs, Git worktrees, and an understanding of AI limitations.')}</p><span class="card-link">{t('阅读教程', 'Read the guides')} <span aria-hidden="true">↗</span></span></a><a class="learn-card" href={`/${lang}/steerline/`}><span class="number">LEARN STEERLINE</span><h3>{t('学习 SteerLine', 'Learn SteerLine')}</h3><p>{t('理解 Roadmap、任务依赖，以及它们如何承载项目推进。', 'Understand roadmaps, task dependencies, and how they support project progress.')}</p><span class="card-link">{t('了解核心理念', 'Explore the concepts')} <span aria-hidden="true">↗</span></span></a></div>
+      </section>
     </main>
     <SiteFooter lang={lang} />
   </body>
