@@ -3,14 +3,15 @@ import '../../styles/home.css';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import SeoHead from '../../components/SeoHead.astro';
+import ChineseHome from '../../components/ChineseHome.astro';
 export function getStaticPaths() { return ['en', 'zh-cn'].map((lang) => ({ params: { lang } })); }
 const lang = Astro.params.lang === 'zh-cn' ? 'zh-cn' : 'en';
 const zh = lang === 'zh-cn';
 const t = (chinese: string, english: string) => zh ? chinese : english;
 const product = `/${lang}/product/`;
 const github = 'https://github.com/erranliu/SteerLine';
-const title = t('SteerLine｜Roadmap 驱动的 AI 开发系统', 'SteerLine | A Roadmap-Driven AI Development System');
-const description = t('SteerLine 同时提供 AI 开发方法与配套工具，将 Roadmap、规格文档、任务依赖、Agent 执行和测试验收组织成持续推进的项目流程。开源项目，尚未发布。', 'SteerLine brings development methods and tools together around roadmaps, specifications, task dependencies, agent execution, and acceptance. Open source and not yet released.');
+const title = t('SteerLine｜AI Workshop · 面向项目的 AI 开发系统', 'SteerLine | A Roadmap-Driven AI Development System');
+const description = t('SteerLine 定义 AI Workshop：以多 Agent 编排与流程约束组织项目开发，让人聚焦产品方向、关键取舍与必要验收。开源，尚未发布。', 'SteerLine brings development methods and tools together around roadmaps, specifications, task dependencies, agent execution, and acceptance. Open source and not yet released.');
 const problems = [
   [t('任务之间，怎样交接？', 'How does one task hand off to the next?'), t('前置接口是否稳定、后续任务能否开工，需要明确的成果和依赖关系。', 'Stable interfaces and explicit deliverables determine when dependent work can begin.')],
   [t('开发依据，怎样保持有效？', 'How do working agreements stay current?'), t('需求、设计和实现持续变化，执行者需要找到当前有效的规格与项目约定。', 'As requirements, design, and code evolve, each agent needs current specifications and project agreements.')],
@@ -31,6 +32,7 @@ const designs = [
     <a class="skip-link" href="#main">{t('跳转到主要内容', 'Skip to content')}</a>
     <header class="site-header"><SiteHeader lang={lang} /></header>
     <main id="main" data-pagefind-body>
+      {zh ? <ChineseHome /> : <>
       <section class="hero wrap" aria-labelledby="home-title">
         <div>
           <p class="eyebrow"><span class="signal"></span>{t('Roadmap 驱动的 AI 开发系统', 'A ROADMAP-DRIVEN AI DEVELOPMENT SYSTEM')}</p>
@@ -70,6 +72,7 @@ const designs = [
         <div class="section-heading"><p class="eyebrow">05 / {t('继续探索', 'CONTINUE EXPLORING')}</p><div><h2 id="learning-title">{t('理解方法，\n再走进实践。', 'Understand the methods.\nExplore the practice.')}</h2><p>{t('从通用的 AI 软件工程方法出发，进一步理解 SteerLine 的理念与工作方式。', 'Start with general AI software engineering methods, then explore the ideas and workflow behind SteerLine.')}</p></div></div>
         <div class="learn-grid"><a class="learn-card" href={`/${lang}/ai-engineering/`}><span class="number">AI DEVELOPMENT</span><h3>{t('学习 AI 开发', 'Learn AI development')}</h3><p>{t('从 Spec、Git Worktree 到 AI 的边界，建立自己的开发方法。', 'Build your practice around specs, Git worktrees, and an understanding of AI limitations.')}</p><span class="card-link">{t('阅读教程', 'Read the guides')} <span aria-hidden="true">↗</span></span></a><a class="learn-card" href={`/${lang}/steerline/`}><span class="number">LEARN STEERLINE</span><h3>{t('学习 SteerLine', 'Learn SteerLine')}</h3><p>{t('理解 Roadmap、任务依赖，以及它们如何承载项目推进。', 'Understand roadmaps, task dependencies, and how they support project progress.')}</p><span class="card-link">{t('了解核心理念', 'Explore the concepts')} <span aria-hidden="true">↗</span></span></a></div>
       </section>
+      </>}
     </main>
     <SiteFooter lang={lang} />
   </body>
